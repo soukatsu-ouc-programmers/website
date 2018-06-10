@@ -7,18 +7,18 @@ Template Name: レオナルドの部屋
 
 <!-- パンくずリスト -->
 <div id="breadcrumb">
-  <a href="index.html"><i class="fa fa-home"></i>HOME</a> &gt;
-  <a href="about.html">About</a> > <a href="top.html">レオナルドの部屋</a>
+  <a href="<?php echo home_url() ?>"><i class="fa fa-home"></i>HOME</a> &gt;
+  <a href="top.html">レオナルドの部屋</a>
 </div>
 
 <!-- 本文欄 -->
 <div class="content">
   <h1>レオナルドの部屋</h1>
-  <img src="img/logo.jpg" width="750"><br>
+  <img src="<?php bloginfo('template_url'); ?>/img/logo.jpg" width="750"><br>
 
   <!-- 追従式レオナルド -->
-  <div style="position: fixed; right: 0; bottom: 0; z-index: 1">
-    <img src="img/leonardo_follow.png" width="150">
+  <div class="pc" style="position: fixed; right: 0; bottom: 0; z-index: 1">
+    <img src="<?php bloginfo('template_url'); ?>/img/leonardo_follow.png" width="150">
   </div>
 
   <h2>レオナルドって？</h2>

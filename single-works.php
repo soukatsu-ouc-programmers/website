@@ -2,7 +2,7 @@
 
 <!-- パンくずリスト -->
 <div id="breadcrumb">
-	<a href="index.html"><i class="fa fa-home"></i>HOME</a> &gt;
+	<a href="<?php echo home_url() ?>"><i class="fa fa-home"></i>HOME</a> &gt;
 	<a href="works.html">Works</a>
 </div>
 

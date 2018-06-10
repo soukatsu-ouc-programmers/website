@@ -5,10 +5,9 @@
 /*************** 基本 ***************/
 
 body{
-	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", "メイリオ",
-				Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-	font-size:13px;
-	line-height:1.7;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	font-size: 13px;
+	line-height: 1.7;
 	background-color:#F3F3F3;
 }
 
@@ -175,10 +174,10 @@ strong{
 
 a{
 	border:0;
-	-webkit-transition: 0.3s ease-in-out;  
-	-moz-transition: 0.3s ease-in-out;  
+	-webkit-transition: 0.3s ease-in-out;
+	-moz-transition: 0.3s ease-in-out;
 	-o-transition: 0.3s ease-in-out;
-	transition: 0.3s ease-in-out;  
+	transition: 0.3s ease-in-out;
 }
 a:link{
 	color:#2E2E2E;
@@ -194,15 +193,15 @@ a:visited{
 a:active{
 	color:#ffffff;
 }
-a img {  
+a img {
 	border:0;
-    -webkit-transition: 0.2s ease-in-out;  
-    -moz-transition: 0.2s ease-in-out;  
-    -o-transition: 0.2s ease-in-out;  
-    transition: 0.2s ease-in-out;  
-}  
-a img:hover{  
-    opacity: 0.4;  
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+}
+a img:hover{
+    opacity: 0.4;
     filter: alpha(opacity=60);
 	transform:translateX(0);
 }
@@ -223,7 +222,7 @@ a img:hover{
 #menu{
 	font-size: 40px;
 	color: #ffffff;
-	font-family: advent-pro;
+	font-family: 'Advent Pro', sans-serif;
 	line-height: 0.5;
 	background-color: #1a1a1a;
 	border-right: solid 5px #29abe2;
@@ -309,4 +308,3 @@ ul.disc{
 	list-style-type: disc;
 	margin-left: 30px;
 }
-

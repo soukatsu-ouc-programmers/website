@@ -7,7 +7,7 @@ Template Name: Contact
 
 <!-- パンくずリスト -->
 <div id="breadcrumb">
-  <a href="index.html"><i class="fa fa-home"></i>HOME</a> &gt;
+  <a href="<?php echo home_url() ?>"><i class="fa fa-home"></i>HOME</a> &gt;
   <a href="contact.html">Contact</a>
 </div>
 
@@ -21,7 +21,14 @@ Template Name: Contact
   <br>
 
   <!-- WordPressプラグインの問い合わせフォーム -->
-  [contact-form-7 id="55" title="MainContactForm"]
+  <?php
+    if(have_posts()) :
+      while(have_posts()) :
+        the_post();
+        the_content();
+      endwhile;
+    endif;
+  ?>
 </div><!-- content -->
 
 <?php get_footer(); ?>

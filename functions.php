@@ -82,16 +82,17 @@ function is_mobile() {
     return preg_match($pattern, $_SERVER['HTTP_USER_AGENT']);
 }
 
+
 //---------------------------------------------------------------------------
-//  カスタム投稿タイプを登録
+//  カスタム投稿タイプ [作品] を登録
 //---------------------------------------------------------------------------
-function new_post_type() {
+function new_post_type_works() {
     register_post_type(
         'works',    // 投稿タイプ名（識別子）
         array(
-            'label' => '作品',
+            'label' => '作品一覧',
             'labels' => array(
-                'add_new_item' => '新規作品を追加',
+                'add_new_item' => '作品を追加',
                 'edit_item' => '作品情報を編集',
                 'view_item' => '作品を表示',
                 'search_items' => '作品を検索',
@@ -114,12 +115,12 @@ function new_post_type() {
         'works_category',
         'works',
         array(
-            'label' =>  '作品カテゴリー',
+            'label' =>  'カテゴリー',
             'labels' => array(
-                'popular_items' => 'よく使う作品カテゴリー',
-                'edit_item' => '作品カテゴリーを編集',
-                'add_new_item' => '新規作品カテゴリーを追加',
-                'search_items' =>  '作品カテゴリーを検索',
+                'popular_items' => 'よく使うカテゴリー',
+                'edit_item' => 'カテゴリーを編集',
+                'add_new_item' => '新規カテゴリーを追加',
+                'search_items' =>  'カテゴリーを検索',
             ),
           'public' => true,
           'hierarchical' => true,
@@ -131,12 +132,12 @@ function new_post_type() {
         'works_tag',
         'works',
         array(
-            'label' => '作品タグ',
+            'label' => 'タグ',
             'labels' => array(
-                'popular_items' => 'よく使う作品タグ',
-                'edit_item' => '作品タグを編集',
-                'add_new_item' => '新規作品タグを追加',
-                'search_items' =>  '作品タグを検索',
+                'popular_items' => 'よく使うタグ',
+                'edit_item' => 'タグを編集',
+                'add_new_item' => '新規タグを追加',
+                'search_items' =>  'タグを検索',
             ),
             'public' => true,
             'hierarchical' => false,
@@ -146,8 +147,75 @@ function new_post_type() {
 
     flush_rewrite_rules();
 }
-add_action('init', 'new_post_type');
-
-// カテゴリーとタグの URL のリライトルールを設定
-add_rewrite_rule('works/cat/([^/]+)/?$', 'index.php?works_cat=$matches[1]', 'top');
+add_action('init', 'new_post_type_works');
+add_rewrite_rule('works/category/([^/]+)/?$', 'index.php?works_category=$matches[1]', 'top');
 add_rewrite_rule('works/tag/([^/]+)/?$', 'index.php?works_tag=$matches[1]', 'top');
+
+
+//---------------------------------------------------------------------------
+//  カスタム投稿タイプ [レオナルドのおもちゃ箱] を登録
+//---------------------------------------------------------------------------
+function new_post_type_leonardotoys() {
+    register_post_type(
+        'leonardotoys',    // 投稿タイプ名（識別子）
+        array(
+            'label' => 'レオナルドのおもちゃ箱一覧',
+            'labels' => array(
+                'add_new_item' => '作品を追加',
+                'edit_item' => '作品情報を編集',
+                'view_item' => '作品を表示',
+                'search_items' => '作品を検索',
+            ),
+            'public' => true,          // 管理画面に表示しサイト上にも表示する
+            'hierarchicla' => false,   // コンテンツを階層構造にするかどうか(投稿記事と同様に時系列に)
+            'has_archive' => true,     // trueにすると投稿した記事のアーカイブページを生成
+            'supports' => array(       // 記事編集画面に表示する項目を配列で指定することができる
+                'title',               // タイトル
+                'editor',              // 本文（の編集機能）
+                'thumbnail',           // アイキャッチ画像
+                'custom-fields',
+                'excerpt'              // 抜粋
+            ),
+            'menu_position' => 5       // 「投稿」の下に追加
+        )
+    );
+
+    register_taxonomy(
+        'leonardotoys_category',
+        'leonardotoys',
+        array(
+            'label' =>  'カテゴリー',
+            'labels' => array(
+                'popular_items' => 'よく使うカテゴリー',
+                'edit_item' => 'カテゴリーを編集',
+                'add_new_item' => '新規カテゴリーを追加',
+                'search_items' =>  'カテゴリーを検索',
+            ),
+          'public' => true,
+          'hierarchical' => true,
+          'rewrite' => array('slug' => 'leonardotoys/category')  // leonardotoys_category の代わりに leonardotoys/category でアクセス（URL)
+        )
+    );
+
+    register_taxonomy(
+        'leonardotoys_tag',
+        'leonardotoys',
+        array(
+            'label' => 'タグ',
+            'labels' => array(
+                'popular_items' => 'よく使うタグ',
+                'edit_item' => 'タグを編集',
+                'add_new_item' => '新規タグを追加',
+                'search_items' =>  'タグを検索',
+            ),
+            'public' => true,
+            'hierarchical' => false,
+            'rewrite' => array('slug' => 'leonardotoys/tag')
+        )
+    );
+
+    flush_rewrite_rules();
+}
+add_action('init', 'new_post_type_leonardotoys');
+add_rewrite_rule('leonardotoys/category/([^/]+)/?$', 'index.php?leonardotoys_category=$matches[1]', 'top');
+add_rewrite_rule('leonardotoys/tag/([^/]+)/?$', 'index.php?leonardotoys_tag=$matches[1]', 'top');

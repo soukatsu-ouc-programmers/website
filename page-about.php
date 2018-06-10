@@ -7,7 +7,7 @@ Template Name: About
 
 <!-- パンくずリスト -->
 <div id="breadcrumb">
-  <a href="index.html"><i class="fa fa-home"></i>HOME</a> &gt;
+  <a href="<?php echo home_url() ?>"><i class="fa fa-home"></i>HOME</a> &gt;
   <a href="about.html">About</a>
 </div>
 
@@ -49,7 +49,7 @@ Template Name: About
 
   <h2>マスコットキャラクター</h2>
   <div style="float: none; margin-right: 20px">
-    <img src="img/leonardo.png" align="right">
+    <img src="<?php bloginfo('template_url'); ?>/img/leonardo.png" align="right">
   </div>
   <div style="float: none">
     <p>
@@ -60,7 +60,7 @@ Template Name: About
     <p>
       <span class="update_date">2017/02/22 追記</span><br>
       レオナルド本人の意向により新たなページが立ち上げられたようです。<br>
-      どうやら <a href="leonardo/top.html">このページ</a> から入れるようです。皆さんぜひ見てあげて下さい。<br>
+      どうやら <a href="leonardo.html">このページ</a> から入れるようです。皆さんぜひ見てあげて下さい。<br>
     </p>
   </div>
 

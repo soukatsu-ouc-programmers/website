@@ -17,7 +17,7 @@
 	margin-top:20px;
 	padding:10px 10px 10px 10px;
 }
-#pc {
+.pc {
 	display: none;
 }
 .contents_left, .contents_right {
@@ -34,7 +34,7 @@
 	width:100%;
 	height:auto;
 }
-.youtube{	
+.youtube{
 	position:relative;
 	width:100%;
 	padding-top:56.25%;

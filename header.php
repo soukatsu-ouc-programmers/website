@@ -11,12 +11,16 @@
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/lightbox.css">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/common.css">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/sp.css">
+  <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet">
   <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
+  <script src="<?php bloginfo('template_url'); ?>/js/jquery-ui.min.js"></script>
+  <script src="<?php bloginfo('template_url'); ?>/js/jquery.sidr.min.js"></script>
+  <script src="<?php bloginfo('template_url'); ?>/js/jquery.slidemenu.js"></script>
+  <script src="<?php bloginfo('template_url'); ?>/js/jquery.taphover.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/pagetop.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/lightbox.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/accordion.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/smoothscroll.js"></script>
-  <script src="http://webfonts.creativecloud.com/advent-pro:n4:default.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -40,7 +44,7 @@
 
 <!-- パソコン版メニュー -->
 <div id="menu">
-    <div id="logo"><a href="index.html"><img src="<?php bloginfo('template_url'); ?>/img/logo.gif" width="220" height="auto" alt=""></a></div>
+    <div id="logo"><a href="<?php echo home_url() ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo.gif" width="220" height="auto" alt=""></a></div>
     <ul>
     <li><a href="about.html">About<br>
       <span class="menu_comment">創作活動部について</span></a></li>
