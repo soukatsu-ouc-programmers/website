@@ -1,3 +1,8 @@
+<?php
+/*
+Template Name: Home
+*/
+?>
 <?php get_header(); ?>
 
 <div id="sp_logo"><img class="topimage" src="<?php bloginfo('template_url'); ?>/img/sp_logo.gif" width="250" height="110" alt=""></div>

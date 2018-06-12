@@ -2,28 +2,44 @@
 
 <!-- パンくずリスト -->
 <div id="breadcrumb">
-	<a href="<?php echo home_url() ?>"><i class="fa fa-home"></i>HOME</a> &gt;
-	<a href="works.html">Works</a>
+  <a href="<?php echo home_url() ?>"><i class="fa fa-home"></i>HOME</a> &gt;
+  <a href="/works.html">Works</a> &gt;
+  <a href="/works/category/...">カテゴリー名</a> &gt;
+  <a href="<?php echo get_the_permalink(); ?>"><?php the_title(); ?></a>
 </div>
 
 <!-- 本文欄 -->
 <div class="content">
-	<h1>Works</h1>
-	<p>
-		各部員が製作した作品（入学以前、卒業以後のものも含む）をジャンルごとに掲載しています。<br>
-		また、作品の著作権は各々部員に帰属します。無断転載はご遠慮下さい。<br>
-	</p>
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+	<h1><?php the_title(); ?></h1>
+	<div class="post_datetime"><?php the_time('Y/m/d H:i') ?></div>
 
-	<h2>ジャンル一覧</h2>
-	<div class="text">
-		<ul style="list-style-type: disc">
-			<li><a href="pagework/project.html">グループ製作プロジェクト</a></li>
-			<li><a href="pagework/software.html">個人製作：ソフトウェア</a></li>
-			<li><a href="pagework/story.html">個人製作：文章</a></li>
-			<li><a href="pagework/illustration.html">個人製作：イラスト</a></li>
-			<li><a href="pagework/music.html">個人製作：音楽</a></li>
-		</ul>
+	<?php the_content(); ?>
+
+	<div class="post_category">
+		<?php
+			$terms = get_the_terms($post->ID, 'works_category');
+			foreach($terms as $term) {
+				echo '<a href="' . get_term_link($term->slug, 'works_category') . '">' . $term->name . '</a> ';
+			}
+		?>
 	</div>
+    <div class="post_tag">
+		<?php
+			$terms = get_the_terms($post->ID, 'works_tag');
+			foreach($terms as $term) {
+				echo '<a href="' . get_term_link($term->slug, 'works_tag') . '">#' . $term->name . '</a> ';
+			}
+		?>
+	</div>
+<?php endwhile; ?>
+	<div class="nav-below">
+    	<span class="nav-previous"><?php previous_post_link('%link', '前の作品へ'); ?></span>
+    	<span class="nav-next"><?php next_post_link('%link', '次の作品へ'); ?></span>
+	</div><!-- /.nav-below -->
+<?php else : ?>
+	<h1>ページが見つかりませんでした</h1>
+<?php endif; ?>
 </div><!-- content -->
 
 <?php get_footer(); ?>

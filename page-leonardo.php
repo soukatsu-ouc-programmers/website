@@ -8,7 +8,7 @@ Template Name: レオナルドの部屋
 <!-- パンくずリスト -->
 <div id="breadcrumb">
   <a href="<?php echo home_url() ?>"><i class="fa fa-home"></i>HOME</a> &gt;
-  <a href="top.html">レオナルドの部屋</a>
+  <a href="<?php echo get_the_permalink(); ?>">レオナルドの部屋</a>
 </div>
 
 <!-- 本文欄 -->
@@ -71,10 +71,21 @@ Template Name: レオナルドの部屋
 
   <h2>おもちゃ箱（ミニゲーム集）</h2>
   <ul class="circle">
-    <li><a href="leonardo-shinkeisuijaku.html">神経衰弱</a></li>
-    <li><a href="leonardo-slidepuzzle.html">スライドパズル</a></li>
-  </ul>
-  <br>
+    <?php
+      $args = array(
+          'numberposts' => 999,            // 表示（取得）する記事の数
+          'post_type' => 'leonardotoys'    // 投稿タイプの指定
+      );
+      $posts = get_posts($args);
+      if($posts) : foreach($posts as $post) : setup_postdata($post);
+    ?>
+      <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+    <?php
+      endforeach; endif;
+      wp_reset_postdata();  //クエリのリセット
+    ?>
+ </ul>
+
   ※ Windows/Mac/Linux/iOS/Android に対応しています。<br>
 </div><!-- content -->
 

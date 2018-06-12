@@ -30,10 +30,10 @@
       <dt>&nbsp;&nbsp;≡</dt>
       <dd>
         <ul>
-          <li><a href="about.html">About<span class="menu_comment">創作活動部について</span></a></li>
-          <li><a href="works.html">Works<span class="menu_comment">作品紹介</span></a></li>
-          <li><a href="http://createactouc.tumblr.com/">Blog<span class="menu_comment">部員日記</span></a></li>
-          <li><a href="contact.html">Contact<span class="menu_comment">連絡先</span></a></li>
+          <li><a href="/about.html">About<span class="menu_comment">創作活動部について</span></a></li>
+          <li><a href="/works.html">Works<span class="menu_comment">作品紹介</span></a></li>
+          <li><a href="/blog.html">Blog<span class="menu_comment">部員日記</span></a></li>
+          <li><a href="/contact.html">Contact<span class="menu_comment">連絡先</span></a></li>
         </ul>
       </dd>
     </dl>
@@ -46,13 +46,13 @@
 <div id="menu">
     <div id="logo"><a href="<?php echo home_url() ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo.gif" width="220" height="auto" alt=""></a></div>
     <ul>
-    <li><a href="about.html">About<br>
+    <li><a href="/about.html">About<br>
       <span class="menu_comment">創作活動部について</span></a></li>
-    <li><a href="works.html">Works<br>
+    <li><a href="/works.html">Works<br>
       <span class="menu_comment">作品紹介</span></a></li>
-    <li><a href="http://createactouc.tumblr.com/">Blog<br>
+    <li><a href="/blog.html">Blog<br>
       <span class="menu_comment">部員日記</span></a></li>
-    <li><a href="contact.html">Contact<br>
+    <li><a href="/contact.html">Contact<br>
       <span class="menu_comment">連絡先</span></a></li>
     </ul>
 </div>

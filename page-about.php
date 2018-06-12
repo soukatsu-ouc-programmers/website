@@ -8,12 +8,12 @@ Template Name: About
 <!-- パンくずリスト -->
 <div id="breadcrumb">
   <a href="<?php echo home_url() ?>"><i class="fa fa-home"></i>HOME</a> &gt;
-  <a href="about.html">About</a>
+  <a href="<?php echo get_the_permalink(); ?>"><?php the_title(); ?></a>
 </div>
 
 <!-- 本文欄 -->
 <div class="content">
-  <h1>About</h1>
+  <h1><?php the_title(); ?></h1>
   <h2>創作活動部とは？</h2>
   <p>
     2013年5月に立ち上がったばかりのフレッシュなサークルです。部員24名で活動しています。<br>
@@ -60,7 +60,7 @@ Template Name: About
     <p>
       <span class="update_date">2017/02/22 追記</span><br>
       レオナルド本人の意向により新たなページが立ち上げられたようです。<br>
-      どうやら <a href="leonardo.html">このページ</a> から入れるようです。皆さんぜひ見てあげて下さい。<br>
+      どうやら <a href="/leonardo.html">このページ</a> から入れるようです。皆さんぜひ見てあげて下さい。<br>
     </p>
   </div>
 
@@ -70,7 +70,7 @@ Template Name: About
     当サークルでは、入部する旨と、学生番号と氏名を次のいずれかの方法で伝えて入部が確定します。<br>
 
     <ul style="list-style-type: disc; margin: 10px 30px;">
-      <li><a href="contact.html">お問い合わせフォーム</a>からメールを送る。</li>
+      <li><a href="/contact.html">お問い合わせフォーム</a>からメールを送る。</li>
       <li>サークル [create.act.ouc＊gmail.com]（＊を＠に変えて下さい）にメールを送る。</li>
       <li>部員の誰かに口頭で伝える。</li>
     </ul>
