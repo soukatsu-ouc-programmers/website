@@ -11,11 +11,10 @@
 <div class="content">
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	<h1><?php the_title(); ?></h1>
-	<div class="post_datetime"><?php the_time('Y/m/d H:i') ?></div>
+	<div class="post_datetime"><?php the_time('Y/m/d') ?></div>
 
 	<?php the_content(); ?>
 
-	<div class="post_category"><?php echo get_the_category(); ?></div>
     <div class="post_tag"><?php echo get_the_tags("#", ", "); ?></div>
 <?php endwhile; ?>
 	<div class="nav-below">

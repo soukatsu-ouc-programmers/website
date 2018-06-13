@@ -15,6 +15,7 @@ add_action('wp_enqueue_scripts', 'add_jquery_scripts');
 //　サムネイルを使えるようにする
 //---------------------------------------------------------------------------
 add_theme_support('post-thumbnails');
+set_post_thumbnail_size(150, 120, false);
 
 // サムネイルのサイズを指定（追加）する
 add_image_size('archive_thumbnail', 150, 120, false);
