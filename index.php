@@ -1,24 +1,11 @@
 <?php get_header(); ?>
 <?php global $more; $more = 0; ?>
 
-index.php
-
 <!-- 本文欄 -->
 <div class="content">
-  <h1>
-  <?php
-    if(is_author()) {
-		$user_data = get_userdata($author);
-		echo '投稿者「', $user_data->last_name, ' ', $user_data->first_name, '」';
-	}
-	if(is_category())                   echo '記事カテゴリー「', single_cat_title(), '」';
-	if(is_tax('works_category'))        echo '作品カテゴリー「', single_cat_title(), '」';
-	if(is_tax('leonardotoys_category')) echo 'おもちゃカテゴリー「', single_cat_title(), '」';
-	if(is_tag())                        echo '記事タグ「', single_cat_title(), '」';
-	if(is_tax('works_tag'))             echo '作品タグ「', single_cat_title(), '」';
-	if(is_tax('leonardotoys_tag'))      echo 'おもちゃタグ「', single_cat_title(), '」';
-  ?>
-  </h1>
+  <?php if(is_archive()) : ?>
+    <h1><?php echo get_the_archive_title(); ?></h1>
+  <?php endif; ?>
 
   <!-- 各記事の一覧 -->
   <?php while(have_posts()) : the_post(); ?>
@@ -31,7 +18,9 @@ index.php
       <?php the_content('続きを読む'); ?>
     </div><!-- text -->
   <?php endwhile; ?>
+
+  <!-- ナビゲーター -->
+  <?php if(function_exists('wp_pagenavi')) wp_pagenavi(); ?>
 </div><!-- content -->
 
-<?php if(function_exists('wp_pagenavi')) wp_pagenavi(); ?>
 <?php get_footer(); ?>

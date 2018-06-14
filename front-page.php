@@ -5,6 +5,11 @@ Template Name: Home
 ?>
 <?php get_header(); ?>
 
+  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/slick.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/slick-theme.min.css">
+<script src="<?php bloginfo('template_url'); ?>/js/slick.min.js"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/movie-slider.js"></script>
+
 <div id="sp_logo"><img class="topimage" src="<?php bloginfo('template_url'); ?>/img/sp_logo.gif" width="250" height="110" alt=""></div>
 <div id="description">小樽商科大学の創立<script type="text/javascript">myDate = new Date(); myYear = myDate.getFullYear() - 2013 + 1; document.write(myYear);</script>年目のサークル「創作活動部」のホームページです。</div>
 <img class="topimage" src="<?php bloginfo('template_url'); ?>/img/topimage.jpg" width="780" height="200" alt=""><br><br>
@@ -24,22 +29,34 @@ Template Name: Home
 
 <!-- 左側の本文欄 -->
 <div class="contents_left">
-  <h1>更新履歴</h1>
+  <h1>新着情報</h1>
   <p>
-    <span class="update_date">2018.04.01</span>Story: <a href="pagework/story.html">札幌太郎　短編5作品投稿</a><br>
-    <span class="update_date">2018.03.28</span>Blog: <a href="http://createactouc.tumblr.com/post/172314469572/%E8%A3%BD%E4%BD%9C%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8Abordered">Bordered製作振り返り</a><br>
-    <span class="update_date">2018.03.26</span>Projects:「<a href="pagework/project.html#7">Bordered</a>」を公開！<br>
-    <span class="update_date">2017.05.07</span>About:「<a href="about.html">部員紹介</a>」を更新！<br>
-    <span class="update_date">2017.02.22</span>About:「<a href="leonardo.html">レオナルドの部屋</a>」を開設！<br>
-    <span class="update_date">2016.10.22</span>Projects:「<a href="pagework/project.html#6">ぷれふり！</a>」を公開！<br>
-    <span class="update_date">2016.08.31</span>Projects: <a href="pagework/project.html#4">Kawaz夏のゲームジャムでの制作ゲーム</a>がリリース<br>
-    <span class="update_date">2016.01.18</span>Projects:「<a href="pagework/blessingcorolla/rpg.html">祝福の花冠</a>」を公開・ダウンロード配布開始<br>
+    <?php
+      $args = array(
+        'post_type' => array('page', 'post', 'works', 'leonardotoys'),   // 投稿系をすべて対象とする
+        'posts_per_page' => 5    // 取得件数
+      );
+      $the_query = new WP_Query($args);
+      while($the_query->have_posts()) :
+        $the_query->the_post();
+        $the_post_type = get_post_type_object(get_post_type());
+    ?>
+      <span class="update_date"><?php the_time('Y/m/d') ?></span><?php echo esc_html($the_post_type->label); ?>: <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br>
+    <?php
+      endwhile;
+      wp_reset_postdata();
+    ?>
   </p>
 
   <h1>最近の作品</h1>
-  <div class="youtube">
-    <iframe width="500" height="280" src="https://www.youtube.com/embed/ozz6Fwrw3qc" frameborder="0" allowfullscreen></iframe>
-  </div>
+  <section class="main-slider">
+    <div class="item youtube">
+      <iframe width="500" height="280" src="https://www.youtube.com/embed/4LuvmbGfFSs" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="item youtube">
+      <iframe width="500" height="280" src="https://www.youtube.com/embed/ozz6Fwrw3qc" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
 
   <h1>つぶやき</h1>
   <a class="twitter-timeline" href="https://twitter.com/Act_Ouc" lang="en" data-widget-id="667532351136624640" width="95%" height="400px">@Act_Oucさんのツイート</a>

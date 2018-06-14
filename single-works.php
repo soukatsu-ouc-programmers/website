@@ -1,3 +1,8 @@
+<?php
+/*
+Template Name: Works
+*/
+?>
 <?php get_header(); ?>
 <?php
   if (have_posts()) : the_post();
@@ -33,7 +38,19 @@
 			<?php echo '<a href="' . get_term_link($term->slug, 'works_tag') . '">#' . $term->name . '</a> '; ?>
 		<?php endforeach; ?>
 	</div>
+
+	<!-- コメント欄 -->
+	<div class="comments">
+		<?php comments_template(); ?>
+	</div>
+
+	<!-- ナビゲーター -->
+	<div class="navigator">
+			<span class="nav-previous"><?php previous_post_link('%link', '前の作品へ'); ?></span>
+			<span class="nav-next"><?php next_post_link('%link', '次の作品へ'); ?></span>
+	</div><!-- navigator -->
 </div><!-- content -->
 
 <?php endif; ?>
+
 <?php get_footer(); ?>

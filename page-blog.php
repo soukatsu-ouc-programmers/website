@@ -17,7 +17,7 @@ Template Name: Blog
   部員たちによる活動報告やプライベートな日記などを綴っていきます。<br>
 
   <!-- 各記事の一覧 -->
-  <?php $the_query = new WP_Query(array('post_type' => 'post')); ?>
+  <?php $the_query = new WP_Query(array('post_type' => 'post', 'paged' => $paged)); ?>
   <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
     <h2 class="<?php echo esc_attr(get_post_type()); ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
   	<div class="post_datetime"><?php the_time('Y/m/d') ?></div>
@@ -27,7 +27,13 @@ Template Name: Blog
       </div>
 	    <?php the_content('続きを読む'); ?>
     </div><!-- text -->
-  <?php endwhile; ?>
+  <?php
+    endwhile;
+    wp_reset_postdata();
+  ?>
+
+  <!-- ナビゲーター -->
+  <?php if(function_exists('wp_pagenavi')) wp_pagenavi(array('query' => $the_query)); ?>
 </div><!-- content -->
 
 <?php get_footer(); ?>
