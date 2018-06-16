@@ -4,12 +4,14 @@
 //　jQueryを使えるようにする
 //---------------------------------------------------------------------------
 function add_jquery_scripts() {
-    if(is_admin()) return;
+    if(is_admin()) {
+        return;
+    }
     wp_deregister_script('jquery');
     wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery.min.js', array(), false, false);
-    // wp_enqueue_script('jquery-mig', get_template_directory_uri() . '/js/jquery-migrate-1.2.1.min.js', array(), false, false);
 }
 add_action('wp_enqueue_scripts', 'add_jquery_scripts');
+
 
 //---------------------------------------------------------------------------
 //　サムネイルを使えるようにする
@@ -19,6 +21,7 @@ set_post_thumbnail_size(150, 120, false);
 
 // サムネイルのサイズを指定（追加）する
 add_image_size('archive_thumbnail', 150, 120, false);
+
 
 //---------------------------------------------------------------------------
 //　固定ページのパーマリンクの最後に.htmlを付ける
@@ -32,12 +35,14 @@ if(!function_exists('edit_page_url')) {
     }
 }
 
+
 //---------------------------------------------------------------------------
 //　カスタムメニューの設定
 //---------------------------------------------------------------------------
 add_theme_support('menus');
 register_nav_menu('primary', 'Header navigation menu');
 register_nav_menu('footer-navi', 'Footer navigation menu');
+
 
 //---------------------------------------------------------------------------
 //　サイドバーの設定
@@ -53,6 +58,7 @@ register_sidebar(array(
     'before_title'  => '<h4 class="text-center widgettitle">',
     'after_title'   => '</h4>'
 ));
+
 
 //---------------------------------------------------------------------------
 //  スマホならtrue, タブレット・PCならfalseを返す
@@ -73,9 +79,10 @@ function is_mobile() {
         'incognito',       // Other iPhone browser
         'webmate'          // Other iPhone browser
     );
-    $pattern = '/'.implode('|', $useragents).'/i';
+    $pattern = '/' . implode('|', $useragents).'/i';
     return preg_match($pattern, $_SERVER['HTTP_USER_AGENT']);
 }
+
 
 //---------------------------------------------------------------------------
 //　外部ファイルの読み込み

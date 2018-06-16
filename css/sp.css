@@ -1,182 +1,174 @@
-﻿@charset "utf-8";
+@charset "utf-8";
 
 /* CSS Document */
 
 @media screen and (max-width:800px) {
 #container {
-	width: 100%;
+  width: 100%;
 }
 #main {
-	width: 95%;
-	margin: 0 auto;
+  width: 95%;
+  margin: 0 auto;
 }
 #contents{
-	width:95%;
-	float:none;
-	margin:auto;
-	margin-top:20px;
-	padding:10px 10px 10px 10px;
+  width:95%;
+  float:none;
+  margin:auto;
+  margin-top:20px;
+  padding:10px 10px 10px 10px;
 }
 .pc {
-	display: none;
+  display: none;
 }
 .contents_left, .contents_right {
-	width: 100%;
-	float: none;
-	margin:0;
-	width: 100%;
+  width: 100%;
+  float: none;
+  margin:0;
+  width: 100%;
+}
+.contents_right {
+  text-align: center;
 }
 .content{
-	margin:0;
-	padding-left:5px;
+  margin:0;
+  padding-left:5px;
 }
 .content img{
-	width:100%;
-	height:auto;
-}
-.youtube{
-	position:relative;
-	width:100%;
-	padding-top:56.25%;
-}
-.youtube iframe{
-	position: absolute;
-	top:0;
-	right:0;
-	width:100% !important;
-	height:100% !important;
+  width:100%;
+  height:auto;
 }
 h1,h2{
-	margin-left:0;
+  margin-left:0;
 }
 .sp_br{
-	display:none;
+  display:none;
 }
 .topimage {
-	width: 95%;
-	height: auto;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
 }
 #description{
-	font-size:10px;
-	text-align:left;
-	margin-bottom:5px;
+  font-size:10px;
+  text-align:center;
+  margin-bottom:5px;
 }
 #sp_logo{
-	display:block;
-	margin:20px;
+  display:block;
+  margin:20px;
 }
 #logo_since{
-	font-size:15px;
-	text-align:right;
-	margin-bottom:20px;
+  font-size:15px;
+  text-align:right;
+  margin-bottom:20px;
 }
 #copyright{
-	font-size:10px;
-	margin:20px;
+  font-size:10px;
+  margin:20px;
 }
 
 /* メニュー設定 */
 #menu {
-	display: none;
+  display: none;
 }
 #sp_menu {
-	display: block;
+  display: block;
 }
 .sp_menu dt{
-	width: 100%;
-	cursor:pointer;
-	background-color: #1a1a1a;
-	color:#ffffff;
-	font-size:28px;
-	font-weight:bold;
-	border-bottom: solid 5px #29abe2;
+  width: 100%;
+  cursor:pointer;
+  background-color: #1a1a1a;
+  color:#ffffff;
+  font-size:28px;
+  font-weight:bold;
+  border-bottom: solid 5px #29abe2;
 }
 .sp_menu dt:hover{
-	text-decoration:none;
+  text-decoration:none;
 }
 .sp_menu dt:before{
-	content:"▼";
-	font-size:15px;
-	float:right;
-	right:20px;
-	top:15px;
-	position: relative;
+  content:"▼";
+  font-size:15px;
+  float:right;
+  right:20px;
+  top:15px;
+  position: relative;
 }
 .sp_menu dt.open::before{
-	content:"▲";
-	font-size:15px;
-	float:right;
-	right:20px;
-	top:15px;
-	position: relative;
+  content:"▲";
+  font-size:15px;
+  float:right;
+  right:20px;
+  top:15px;
+  position: relative;
 }
 .sp_menu dd{
-	width: 100%;
-	display:none;
-	font-size: 20px;
-	color: #ffffff;
-	font-family: advent-pro;
-	background-color: #1a1a1a;
-	text-shadow: -1px 0 2px #000000;
+  width: 100%;
+  display:none;
+  font-size: 20px;
+  color: #ffffff;
+  font-family: 'Advent Pro', sans-serif;
+  background-color: #1a1a1a;
+  text-shadow: -1px 0 2px #000000;
 }
 .sp_menu li{
-	padding:0px 20px 5px 20px;
-	border-bottom:1px solid #666666;
+  padding:0px 20px 5px 20px;
+  border-bottom:1px solid #666666;
 }
 .sp_menu a{
-	color:#7C7C7C;
-	text-decoration:none;
-	display:block;
+  color:#7C7C7C;
+  text-decoration:none;
+  display:block;
 }
 .sp_menu a:visited{
-	color:#7C7C7C;
+  color:#7C7C7C;
 }
 .sp_menu a:hover{
-	color:#ffffff;
-	transform:translateX(5px);
+  color:#ffffff;
+  transform:translateX(5px);
 }
 .menu_comment{
-	float:right;
-	padding-top:10px;
-	font-size:12px;
-	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
-				Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-	margin-left:10px;
+  float:right;
+  padding-top:10px;
+  font-size:12px;
+  font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
+        Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  margin-left:10px;
 }
 .ad{
-	float:left;
-	width:45%;
-	margin:5px 5px 20px 5px;
+  float:left;
+  width:47%;
+  margin:5px 5px 20px 5px;
 }
 .ad img{
-	width:100%;
-	height:auto;
+  width:100%;
+  height:auto;
 }
 .thumbnail {
-	margin-left:20px;
+  margin-left:20px;
 }
 .thumbnail img{
-	width:25%;
-	height:auto;
+  width:25%;
+  height:auto;
 }
 
 
 /* ページトップ */
 .pagetop {
-	z-index: 100;
-	position: fixed;
-	right: -50px;
-	bottom: 60px;
+  z-index: 100;
+  position: fixed;
+  right: -50px;
+  bottom: 60px;
 }
 .pagetop a {
-	display: block;
-	width: 50px;
-	height: 50px;
-	background-color: #29abe2;
-	border-radius: 5px 0px 0px 5px;
-	text-align: center;
-	color: #ffffff;
-	font-size: 24px;
-	text-decoration: none;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: #29abe2;
+  border-radius: 5px 0px 0px 5px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 24px;
+  text-decoration: none;
 }
 }

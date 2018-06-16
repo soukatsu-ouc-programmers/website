@@ -11,7 +11,8 @@
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/lightbox.css">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/common.css">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/sp.css">
-  <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Advent+Pro">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/jquery-ui.min.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/jquery.sidr.min.js"></script>
@@ -30,10 +31,10 @@
     <dt>&nbsp;&nbsp;≡</dt>
     <dd>
       <ul>
-        <li><a href="/about.html">About<span class="menu_comment">創作活動部について</span></a></li>
-        <li><a href="/works.html">Works<span class="menu_comment">作品紹介</span></a></li>
-        <li><a href="/blog.html">Blog<span class="menu_comment">部員日記</span></a></li>
-        <li><a href="/contact.html">Contact<span class="menu_comment">連絡先</span></a></li>
+        <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('About'))); ?>">About<span class="menu_comment">創作活動部について</span></a></li>
+        <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Works'))); ?>">Works<span class="menu_comment">作品紹介</span></a></li>
+        <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Blog'))); ?>">Blog<span class="menu_comment">部員日記</span></a></li>
+        <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Contact'))); ?>">Contact<span class="menu_comment">連絡先</span></a></li>
       </ul>
     </dd>
   </dl>
@@ -44,16 +45,12 @@
 
 <!-- パソコン版メニュー -->
 <div id="menu">
-  <div id="logo"><a href="<?php echo home_url() ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo.gif" width="220" height="auto" alt=""></a></div>
+  <div id="logo"><a href="<?php echo esc_url(home_url()); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo.gif" width="220" height="auto" alt=""></a></div>
   <ul>
-  <li><a href="/about.html">About<br>
-    <span class="menu_comment">創作活動部について</span></a></li>
-  <li><a href="/works.html">Works<br>
-    <span class="menu_comment">作品紹介</span></a></li>
-  <li><a href="/blog.html">Blog<br>
-    <span class="menu_comment">部員日記</span></a></li>
-  <li><a href="/contact.html">Contact<br>
-    <span class="menu_comment">連絡先</span></a></li>
+    <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('About'))); ?>">About<br><span class="menu_comment">創作活動部について</span></a></li>
+    <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Works'))); ?>">Works<br><span class="menu_comment">作品紹介</span></a></li>
+    <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Blog'))); ?>">Blog<br><span class="menu_comment">部員日記</span></a></li>
+    <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Contact'))); ?>">Contact<br><span class="menu_comment">連絡先</span></a></li>
   </ul>
 </div>
 

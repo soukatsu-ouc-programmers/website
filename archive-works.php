@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: 作品アーカイブ
+Template Name: Worksアーカイブ
 */
 ?>
-<?php include('page-works.php') ?>
+<?php include('page-works.php'); ?>

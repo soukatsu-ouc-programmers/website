@@ -7,13 +7,13 @@ Template Name: レオナルドの部屋
 
 <!-- パンくずリスト -->
 <div id="breadcrumb">
-  <a href="<?php echo home_url() ?>"><i class="fa fa-home"></i>HOME</a> &gt;
-  <a href="<?php echo get_the_permalink(); ?>">レオナルドの部屋</a>
+  <a href="<?php echo esc_url(home_url()); ?>"><i class="fa fa-home"></i>HOME</a> &gt;
+  <a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a>
 </div>
 
 <!-- 本文欄 -->
 <div class="content">
-  <h1>レオナルドの部屋</h1>
+  <h1><?php the_title(); ?></h1>
   <img src="<?php bloginfo('template_url'); ?>/img/logo.jpg" width="750"><br>
 
   <!-- 追従式レオナルド -->
@@ -21,71 +21,33 @@ Template Name: レオナルドの部屋
     <img src="<?php bloginfo('template_url'); ?>/img/leonardo_follow.png" width="150">
   </div>
 
-  <h2>レオナルドって？</h2>
-  <ul class="circle">
-    <li>犬の妖精</li>
-    <li>創作の象徴</li>
-    <li>基本なんでもできる</li>
-  </ul>
-  <br>
-
-  <h2>プロフィール</h2>
-  <table>
-    <tr>
-      <th width="100">趣味</th>
-      <td width="300">創作活動</td>
-    </tr>
-    <tr>
-      <th>性別</th>
-      <td>不詳</td>
-    </tr>
-    <tr>
-      <th>年齢</th>
-      <td><script type="text/javascript">myDate = new Date(); myYear = myDate.getFullYear() - 2013; document.write(myYear);</script>歳（2013年生まれ）</td>
-    </tr>
-    <tr>
-      <th>大きさ</th>
-      <td>30cm くらい</td>
-    </tr>
-    <tr>
-      <th>特技</th>
-      <td>影分身</td>
-    </tr>
-    <tr>
-      <th>装備品</th>
-      <td>ヘッドホン・メガネ・羽</td>
-    </tr>
-  </table>
-  <br>
-
-  <h2>特徴</h2>
-  <ul class="circle">
-    <li>魔法のステッキ（ススキ）を使う</li>
-    <li>身体の色を変えられる</li>
-    <li>普段は妖精界にいる</li>
-    <li>気まぐれで人間界に降り立ち、創作活動部の様子を眺めている</li>
-    <li>尻尾が筆になり、絵や文字を書くこともある</li>
-    <li>装備しているヘッドホンでゲームのサウンドトラックを聴いている</li>
-  </ul>
-  <br>
+<?php
+  the_post();
+  the_content();
+?>
 
   <h2>おもちゃ箱（ミニゲーム集）</h2>
   <ul class="circle">
-    <?php
-      $args = array(
-          'numberposts' => 999,            // 表示（取得）する記事の数
-          'post_type' => 'leonardotoys'    // 投稿タイプの指定
-      );
-      $posts = get_posts($args);
-      if($posts) : foreach($posts as $post) : setup_postdata($post);
-    ?>
-      <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-    <?php
-      endforeach; endif;
-      wp_reset_postdata();  //クエリのリセット
-    ?>
+<?php
+  // ミニゲーム一覧を取得
+  $posts = get_posts(
+    array(
+      'numberposts' => 999,            // 取得する件数
+      'post_type' => 'leonardotoys'    // 取得する投稿タイプ
+    )
+  );
+  if($posts):
+    foreach($posts as $post):
+      setup_postdata($post);
+?>
+      <li><a href="<?php esc_url(the_permalink()); ?>"><?php the_title(); ?></a></li>
+<?php
+    endforeach;
+  endif;
+  wp_reset_postdata();
+?>
  </ul>
-
+ <br>
   ※ Windows/Mac/Linux/iOS/Android に対応しています。<br>
 </div><!-- content -->
 

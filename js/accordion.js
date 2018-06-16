@@ -1,13 +1,16 @@
 // JavaScript Document
 
+/**
+ * アコーディオンを初期化します。
+ */
 $(function() {
-    // SmartPhone Menu
+    // スマホ版のハンバーガーメニュー
     $(".sp_menu dd").css("display","none");
     $(".sp_menu dt").click(function(){
         $(this).toggleClass("open").next().slideToggle("fast");
     });
 
-    // Members Toggle
+    // 部員紹介
     $(".toggleMenu").accordion({
         //header: "h3",
         active: false,

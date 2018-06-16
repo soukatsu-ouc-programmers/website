@@ -1,55 +1,59 @@
 <?php
 /*
-Template Name: レオナルドのおもちゃ箱
+Template Name: レオナルドのおもちゃ箱単一記事
 */
 ?>
 <?php get_header(); ?>
+<?php
+  if(have_posts()):
+    the_post();
+  endif;
+  $terms_tag = get_the_terms($post->ID, 'leonardotoys_tag');
+?>
 
 <!-- パンくずリスト -->
 <div id="breadcrumb">
-  <a href="<?php echo home_url() ?>"><i class="fa fa-home"></i>HOME</a> &gt;
-  <a href="/leonardo.html">レオナルドの部屋</a> &gt;
-  <a href="<?php echo get_the_permalink(); ?>">おもちゃ箱：<?php the_title(); ?></a>
+  <a href="<?php echo esc_url(home_url()); ?>"><i class="fa fa-home"></i>HOME</a> &gt;
+  <a href="<?php echo esc_url(get_permalink(get_page_by_title('About'))); ?>">レオナルドの部屋</a> &gt;
+  <a href="<?php echo esc_url(get_the_permalink()); ?>">おもちゃ箱：<?php the_title(); ?></a>
 </div>
 
 <!-- 本文欄 -->
 <div class="content">
-<?php if(have_posts()) : the_post(); ?>
-	<h1>レオナルドのおもちゃ：<?php the_title(); ?></h1>
-	<div class="post_datetime"><?php the_time('Y/m/d') ?></div>
+  <h1>レオナルドのおもちゃ：<?php the_title(); ?></h1>
+  <div class="post_datetime"><?php the_time('Y/m/d'); ?></div>
 
-	<?php the_content(); ?>
+  <!-- 記事本文 -->
+  <div class="text">
+<?php
+  the_content();
+?>
+  </div>
 
-	<div class="post_category">
-		<?php
-			$terms = get_the_terms($post->ID, 'leonardotoys_category');
-			foreach($terms as $term) {
-				echo '<a href="' . get_term_link($term->slug, 'leonardotoys_category') . '">' . $term->name . '</a> ';
-			}
-		?>
-	</div>
-    <div class="post_tag">
-		<?php
-			$terms = get_the_terms($post->ID, 'leonardotoys_tag');
-			foreach($terms as $term) {
-				echo '<a href="' . get_term_link($term->slug, 'leonardotoys_tag') . '">#' . $term->name . '</a> ';
-			}
-		?>
-	</div>
-<?php endif; ?>
+  <!-- 関連付けられたタグ -->
+  <div class="post_tag">
+<?php
+  foreach($terms_tag as $term):
+?>
+    <a href="<?php echo esc_url(get_term_link($term->slug, 'leonardotoys_tag')); ?>">#<?php echo esc_html($term->name); ?></a>
+<?php
+  endforeach;
+?>
+  </div>
 
+  <!-- コメント欄 -->
+  <div class="comments">
+<?php
+  comments_template();
+?>
+  </div>
 
-<!-- コメント欄 -->
-<div class="comments">
-	<?php comments_template(); ?>
-</div>
+  <!-- ナビゲーター -->
+  <div class="navigator">
+    <span class="nav-previous"><?php previous_post_link('%link', '前のおもちゃへ'); ?></span>
+    <span class="nav-next"><?php next_post_link('%link', '次のおもちゃへ'); ?></span>
+  </div>
 
-<!-- ナビゲーター -->
-<div class="navigator">
-	<span class="nav-previous"><?php previous_post_link('%link', '前のおもちゃへ'); ?></span>
-	<span class="nav-next"><?php next_post_link('%link', '次のおもちゃへ'); ?></span>
-</div><!-- navigator -->
 </div><!-- content -->
 
-<?php if(function_exists('wp_pagenavi')) wp_pagenavi(); ?>
 <?php get_footer(); ?>

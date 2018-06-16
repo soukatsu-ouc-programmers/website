@@ -3,4 +3,4 @@
 Template Name: Blogアーカイブ
 */
 ?>
-<?php include('page-blog.php') ?>
+<?php include('page-blog.php'); ?>
