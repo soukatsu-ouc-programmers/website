@@ -8,6 +8,7 @@
 @charset "UTF-8";
 @import "variables.scss";
 
+
 @media screen and (max-width : $sp-max-width) {
 
   /*
@@ -25,6 +26,7 @@
     display: none;
   }
 
+
   /*
   * 各種見出し・タグ
   */
@@ -35,6 +37,7 @@
   h2 {
     margin-left: 0;
   }
+
 
   /*
   * 全ページ共通
@@ -224,4 +227,5 @@
       text-decoration: none;
     }
   }
+
 }

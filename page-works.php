@@ -51,8 +51,14 @@ Template Name: Works
     $terms_tag = get_the_terms($post->ID, 'works_tag');
 ?>
 
-  <h2 class="<?php echo esc_attr(get_post_type()); ?>"><a href="<?php esc_url(the_permalink()); ?>"><?php the_title(); ?></a></h2>
-  <div class="post_datetime"><?php the_time('Y/m/d'); ?></div>
+  <h2 class="<?php echo esc_attr(get_post_type()); ?>">
+    <a href="<?php esc_url(the_permalink()); ?>">
+      <?php the_title(); ?>
+    </a>
+    <span class="update-date">
+      （<?php the_time('Y/m/d'); ?>）
+    </span>
+  </h2>
   <div class="text clear-float">
     <!-- アイキャッチ -->
     <div class="thumbnail">

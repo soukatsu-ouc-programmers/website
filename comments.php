@@ -4,7 +4,7 @@
 <?php
   if(have_comments()):
 ?>
-  <h3 id="comments">コメント</h3>
+  <h1 id="comments">コメント</h3>
   <ol class="commets-list">
 <?php
     wp_list_comments();

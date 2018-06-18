@@ -29,12 +29,15 @@ Template Name: Works単一記事
 
 <!-- 本文欄 -->
 <div class="content">
-  <h1><?php the_title(); ?></h1>
-  <div class="post_datetime"><?php the_time('Y/m/d'); ?></div>
+  <h1><?php the_title(); ?><span class="update-date">（<?php the_time('Y/m/d'); ?>）</span></h1>
+
   <!-- アイキャッチ -->
+  <div class="thumbnail-full">
 <?php
   the_post_thumbnail('large');
 ?>
+  </div>
+
   <!-- 記事本文 -->
   <div class="text">
 <?php

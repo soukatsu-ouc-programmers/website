@@ -36,8 +36,14 @@ Template Name: Blog
   while($the_query->have_posts()):
     $the_query->the_post();
 ?>
-  <h2 class="<?php echo esc_attr(get_post_type()); ?>"><a href="<?php esc_url(the_permalink()); ?>"><?php the_title(); ?></a></h2>
-  <div class="post_datetime"><?php the_time('Y/m/d'); ?></div>
+  <h2 class="<?php echo esc_attr(get_post_type()); ?>">
+    <a href="<?php esc_url(the_permalink()); ?>">
+      <?php the_title(); ?>
+    </a>
+    <span class="update-date">
+      （<?php the_time('Y/m/d'); ?>）
+    </span>
+  </h2>
   <div class="text">
     <!-- 省略付き記事本文 -->
 <?php
@@ -50,7 +56,7 @@ Template Name: Blog
 <?php
     foreach(get_the_tags() as $tag):
 ?>
-    <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>">#<?php echo esc_html($tag->name); ?> </a>
+    <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>">#<?php echo esc_html($tag->name); ?></a>
 <?php
     endforeach;
 ?>

@@ -1,7 +1,8 @@
-/*
+/*********************************************************************
 *  共通の変数を定義します。
-*/
+*********************************************************************/
 @charset "UTF-8";
+
 
 // ベンダープレフィックス
 $vendor_prefix: -webkit-, -moz-, -o-, -ms-, '';
@@ -10,6 +11,7 @@ $vendor_prefix: -webkit-, -moz-, -o-, -ms-, '';
 		#{$prefix}transition: $value;
 	}
 }
+
 
 // 数値
 $sp-max-width: 800px;              // スマホ版レイアウトの最大幅
@@ -24,6 +26,7 @@ $text_indent: 20px;                // 本文テキストの字下げ幅
 $ease_text_mousehover: 0.3s;        // 文字リンクのホバー時に行う色変化の時間
 $ease_img_mousehover: 0.2s;        // 画像リンクのホバー時に行う色変化の時間
 
+
 // 文字色
 $color_menu: #7C7C7C;
 $color_date: #b3b3b3;
@@ -35,11 +38,13 @@ $color_link_active: #ffffff;
 $color_link_hover: #BDBDBD;
 $color_link_visited: #828282;
 
+
 // 背景色
 $backcolor_body: #F3F3F3;
 $backcolor_menu: #1a1a1a;
 $backcolor_contents: #ffffff;
 $backcolor_button: #29abe2;
+
 
 // フォント
 $fontfamily_general: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;

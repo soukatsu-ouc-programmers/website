@@ -4,6 +4,7 @@
 @charset "UTF-8";
 @import "variables.scss";
 
+
 /*
 * 変数定義
 */
@@ -331,6 +332,16 @@ body {
 .thumbnail {
   float: left;
   margin-right: 20px;
+}
+
+// 記事単体ページのアイキャッチ
+.thumbnail-full {
+  margin-bottom: 10px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 // 広告欄バナー
