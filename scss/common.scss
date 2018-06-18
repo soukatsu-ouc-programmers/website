@@ -1,0 +1,428 @@
+/*********************************************************************
+*  汎用スタイルを定義します。
+*********************************************************************/
+@charset "UTF-8";
+@import "variables.scss";
+
+/*
+* 変数定義
+*/
+$contents_width: ($page_width - $menu_width - $menu_right_margin - $contents_margin);
+$contents_right_width: 200px;
+$contents_left_width: ($contents_width - $contents_split_distance - $contents_right_width);
+
+
+/*
+* 各種見出し・タグ
+*/
+h1 {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 20px 0 5px -15px;
+  letter-spacing: 1px;
+
+  &:before {
+    content: "▼";
+    color: $color_summary_symbol;
+    margin-right: 5px;
+  }
+}
+
+h2 {
+  margin: 10px 0 5px -10px;
+  border-bottom: 1px solid #000000;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+h3 {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 10px 0 7px 0;
+}
+
+h4 {
+  font-weight: bold;
+  margin: 20px 0 0 -10px;
+
+  &:before {
+    content: "◆";
+    margin-right: 5px;
+  }
+}
+
+h5 {
+  display: inline;
+  font-weight: bold;
+  margin: 10px 0 7px 0;
+
+  &:before {
+    content: "・";
+    margin-right: 3px;
+  }
+}
+
+h6 {
+  display: inline;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 10px 0 7px 0;
+}
+
+strong {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+a {
+  border: 0;
+  @include transition($ease_text_mousehover ease-in-out);
+
+  &:link {
+    color: $color_link_default;
+    text-decoration: underline;
+  }
+
+  &:hover {
+    color: $color_link_hover;
+    text-decoration: none;
+  }
+
+  &:visited {
+    color: $color_link_visited;
+  }
+
+  &:active {
+    color: $color_link_active;
+  }
+
+  img {
+    border: 0;
+    @include transition($ease_img_mousehover ease-in-out);
+
+    &:hover {
+      opacity: 0.4;
+      transform: translateX(0);
+      filter: alpha(opacity = 60);
+    }
+  }
+}
+
+
+/*
+* テーブルレイアウト
+*/
+table {
+  border-collapse: collapse;
+  border-top: 1px solid #ccc;
+  border-left: 3px solid #369;
+  margin: 10px;
+}
+
+th {
+  border: 1px solid #ccc;
+  padding: 10px;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+tr.head {
+  font-weight: bold;
+}
+
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+
+/*
+* リストレイアウト
+*/
+ul.circle {
+  list-style-type: circle;
+  margin-left: 30px;
+}
+
+ul.disc {
+  list-style-type: disc;
+  margin-left: 30px;
+}
+
+
+/*
+* スマホ/PCの区別をするクラス
+* sp.scss にて別途オーバーライドする
+*/
+#sp-menu-container {
+  display: none;
+}
+
+#sp-logo {
+  display: none;
+}
+
+.pc {
+  display: block;
+}
+
+
+/*
+* 全ページ共通
+*/
+body {
+  font-family: $fontfamily_general;
+  font-size: $font_size;
+  line-height: $line_height;
+  background-color: $backcolor_body;
+}
+
+#container {
+  width: 100%;
+}
+
+#main {
+  width: $page_width;
+  margin: 0 auto;
+}
+
+#menu {
+  width: $menu_width;
+  float: left;
+  height: 100%;
+  position: fixed;
+  margin-right: $menu_right_margin;
+  font-size: 40px;
+  color: $color_link_active;
+  font-family: $fontfamily_menu;
+  line-height: 0.5;
+  background-color: $backcolor_menu;
+  border-right: solid 5px $color_summary_symbol;
+  text-shadow: -1px 0 2px #000000;
+  box-shadow: 0px -2px 2px #8A8A8A;
+  -webkit-box-shadow: 0px -2px 2px #8A8A8A;
+
+  ul {
+    padding-left: 40px;
+  }
+
+  li {
+	padding-top: 40px;
+
+    a {
+      display: block;
+      color: $color_menu;
+	  text-decoration: none;
+
+      &:visited {
+        color: $color_menu;
+	  }
+
+      &:hover {
+        color: $color_link_active;
+        transform: translateX(5px);    // マウスホバーしたときに右にスライドする
+      }
+    }
+  }
+}
+
+// メニュー欄とは切り離されたコンテンツ領域
+#contents {
+  width: $contents_width;
+  float: right;
+  margin: $contents_margin 0px $contents_margin 0px;
+  padding: $contents_margin;
+  background-color: $backcolor_contents;
+  box-shadow: 0px 2px 2px #8A8A8A;
+  border-radius: 3px;
+  border-collapse: collapse;
+}
+
+// コンテンツを左右に分離するときに使うコンテナー
+#contents-wrapper {
+  overflow: hidden;
+}
+
+// 左側のコンテンツ
+#contents-left {
+  width: $contents_left_width;
+  float: left;
+  margin: 0 $contents_margin 0 $contents_margin;
+}
+
+// 右側のコンテンツ
+#contents-right {
+  width: $contents_right_width;
+  float: right;
+}
+
+// 創作活動部ロゴ
+#logo {
+  margin: 25px 0px 0px 15px;
+}
+
+// サイトの説明文
+#description {
+  font-size: 12px;
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+// パンくずリスト
+#breadcrumb {
+  text-align: right;
+  font-size: 11px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+
+  // HOMEアイコン
+  i {
+    font-size: 14px;
+    color: $color_breadcrumb_icon;
+    margin-right: 3px;
+  }
+}
+
+// 末尾の権利情報
+#copyright {
+  font-size: 12px;
+  color: $color_copyright;
+  text-align: center;
+  margin: 50px 0 10px 0;
+}
+
+// トップページのサイトイメージ画像
+.topimage {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+// メニューに付ける日本語の注釈
+.menu-comment {
+  font-size: 12px;
+  font-family: $fontfamily_general;
+}
+
+// 本文欄
+.content {
+  margin-left: $text_indent;
+}
+
+// 更新日時
+.update-date {
+  font-size: 10px;
+  color: $color_date;
+  width: 100px;
+  margin-right: 10px;
+}
+
+// テキストブロック
+.text {
+  margin-left: 20px;
+
+  img {
+    margin-top: 10px;
+  }
+}
+
+// 記事一覧のアイキャッチ
+.thumbnail {
+  float: left;
+  margin-right: 20px;
+}
+
+// 広告欄バナー
+.ad {
+  line-height: 1.3;
+}
+
+// 上に戻るボタン
+.pagetop {
+  z-index: 100;
+  position: fixed;
+  right: -50px;
+  bottom: 20px;
+
+  a {
+    display: block;
+    width: 50px;
+    background-color: $backcolor_button;
+    border-radius: 5px 0px 0px 5px;
+    text-align: center;
+    color: $color_link_active;
+    font-size: 24px;
+    text-decoration: none;
+  }
+}
+
+// ダウンロードボタン
+.download {
+  display: inline;
+  text-align: center;
+  color: $color_link_active;
+  background-color: $backcolor_button;
+  padding: 7px;
+  line-height: 3;
+  margin-right: 10px;
+  border-radius: 3px;
+  width: 100px;
+
+  a {
+    &:link {
+      color: $color_link_active;
+      text-decoration: none;
+	}
+
+    &:hover {
+      text-decoration: underline;
+	}
+
+    &:visited {
+      color: $color_link_active;
+      text-decoration: none;
+    }
+  }
+}
+
+// floatを解除する
+.clear-float {
+  overflow: hidden;
+}
+
+
+/*
+* 埋め込みコンテンツ
+*/
+.youtube {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;    // 16:9の比率となる高さ
+
+  iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.twitter-timeline {
+  width: 100% !important;
+  height: 400px !important;
+}
+
+
+/*
+* 各ページ個別
+*/
+// 追従するレオナルド
+.follow-leonardo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}

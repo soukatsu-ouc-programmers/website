@@ -17,7 +17,7 @@ Template Name: レオナルドの部屋
   <img src="<?php bloginfo('template_url'); ?>/img/logo.jpg" width="750"><br>
 
   <!-- 追従式レオナルド -->
-  <div class="pc" style="position: fixed; right: 0; bottom: 0; z-index: 1">
+  <div class="pc follow-leonardo">
     <img src="<?php bloginfo('template_url'); ?>/img/leonardo_follow.png" width="150">
   </div>
 

@@ -53,9 +53,9 @@ Template Name: Works
 
   <h2 class="<?php echo esc_attr(get_post_type()); ?>"><a href="<?php esc_url(the_permalink()); ?>"><?php the_title(); ?></a></h2>
   <div class="post_datetime"><?php the_time('Y/m/d'); ?></div>
-  <div class="text" style="overflow: hidden;">
+  <div class="text clear-float">
     <!-- アイキャッチ -->
-    <div class="thumbnail" style="float: left; margin-right: 20px;">
+    <div class="thumbnail">
 <?php
     the_post_thumbnail();
 ?>

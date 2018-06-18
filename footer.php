@@ -7,5 +7,6 @@
 <!-- ページ最上部へ -->
 <p class="pagetop"><a href="#">∧</a></p>
 
+<?php wp_footer(); ?>
 </body>
 </html>

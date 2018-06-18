@@ -1,19 +1,6 @@
 <?php
 
 //---------------------------------------------------------------------------
-//　jQueryを使えるようにする
-//---------------------------------------------------------------------------
-function add_jquery_scripts() {
-    if(is_admin()) {
-        return;
-    }
-    wp_deregister_script('jquery');
-    wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery.min.js', array(), false, false);
-}
-add_action('wp_enqueue_scripts', 'add_jquery_scripts');
-
-
-//---------------------------------------------------------------------------
 //　サムネイルを使えるようにする
 //---------------------------------------------------------------------------
 add_theme_support('post-thumbnails');

@@ -5,8 +5,8 @@
  */
 $(function() {
     // スマホ版のハンバーガーメニュー
-    $(".sp_menu dd").css("display","none");
-    $(".sp_menu dt").click(function(){
+    $("#sp-menu-container dd").css("display","none");
+    $("#sp-menu-container dt").click(function(){
         $(this).toggleClass("open").next().slideToggle("fast");
     });
 

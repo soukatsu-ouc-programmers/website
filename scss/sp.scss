@@ -1,0 +1,227 @@
+/*********************************************************************
+*  スマホ版専用スタイルを定義します。
+*  レイアウト基本方針:
+*    ・左右分割しない
+*    ・インデントしない
+*    ・左右幅は最大にする
+*********************************************************************/
+@charset "UTF-8";
+@import "variables.scss";
+
+@media screen and (max-width : $sp-max-width) {
+
+  /*
+  * PC専用のレイアウトを無効にする
+  */
+  .pc {
+    display: none;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  .sp-br {
+    display: none;
+  }
+
+  /*
+  * 各種見出し・タグ
+  */
+  h1 {
+    margin-left: 0;
+  }
+
+  h2 {
+    margin-left: 0;
+  }
+
+  /*
+  * 全ページ共通
+  */
+  #container {
+    width: 100%;
+  }
+
+  #main {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  // PC版では非表示となる領域
+  #sp-menu-container {
+    display: block;
+  }
+
+  // スマホ版専用のハンバーガーメニュー
+  #sp-menu {
+    dt {
+      width: 100%;
+      cursor: pointer;
+      background-color: $backcolor_menu;
+      color: $color_link_active;
+      font-size: 28px;
+      font-weight: bold;
+	    border-bottom: solid 5px #29abe2;
+
+      &:hover {
+        text-decoration: none;
+  	  }
+
+      &:before {
+        content: "▼";
+        font-size: 15px;
+        float: right;
+        right: 20px;
+        top: 15px;
+        position: relative;
+      }
+	  }
+
+    dt.open {
+	  // 開いた状態のメニュー
+      &::before {
+        content: "▲";
+        font-size: 15px;
+        float: right;
+        right: 20px;
+        top: 15px;
+        position: relative;
+      }
+	  }
+
+    dd {
+      width: 100%;
+      display: none;
+      font-size: 20px;
+      color: $color_link_active;
+      font-family: $fontfamily_menu;
+      background-color: $backcolor_menu;
+      text-shadow: -1px 0 2px #000000;
+	  }
+
+    li {
+      padding: 0px 20px 5px 20px;
+      border-bottom: 1px solid #666666;
+	  }
+
+    a {
+      color: $color_menu;
+      text-decoration: none;
+	    display: block;
+
+      &:visited {
+        color: $color_menu;
+	    }
+
+      &:hover {
+        color: $color_link_active;
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  #contents {
+    width: 95%;
+    float: none;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px 10px 10px 10px;
+  }
+
+  // 左側のコンテンツ：PC版で左右分離される領域を独立させる
+  #contents-left {
+    width: 100%;
+    float: none;
+    margin: 0;
+    width: 100%;
+  }
+
+  // 右側のコンテンツ：PC版で左右分離される領域を独立させる
+  #contents-right {
+    width: 100%;
+    float: none;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  // 創作活動部ロゴ
+  #sp-logo {
+    display: block;
+    margin: 20px;
+  }
+
+  // サイトの説明文
+  #description {
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  // 末尾の権利情報
+  #copyright {
+    font-size: 10px;
+    margin: 20px;
+  }
+
+  // メニューに付ける日本語の注釈
+  .menu-comment {
+    float: right;
+    padding-top: 10px;
+    margin-left: 10px;
+    font-size: 12px;
+    font-family: $fontfamily_general;
+  }
+
+  // 本文欄
+  .content {
+    margin: 0;
+    padding-left: 5px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  // 記事一覧のアイキャッチ
+  .thumbnail {
+	  margin-left: 20px;
+
+    img {
+      width: 25%;
+      height: auto;
+    }
+  }
+
+  // 広告欄バナー
+  .ad {
+    float: left;
+    width: (100% / 2) - 2%;
+	  margin: 5px 5px 20px 5px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  // 上に戻るボタン
+  .pagetop {
+    z-index: 100;
+    position: fixed;
+    right: -50px;
+    bottom: 60px;
+
+    a {
+      display: block;
+      width: 50px;
+      background-color: $backcolor_button;
+      border-radius: 5px 0px 0px 5px;
+      text-align: center;
+      color: $color_link_active;
+      font-size: 24px;
+      text-decoration: none;
+    }
+  }
+}
