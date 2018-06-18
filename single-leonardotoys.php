@@ -40,13 +40,6 @@ Template Name: レオナルドのおもちゃ箱単一記事
 ?>
   </div>
 
-  <!-- コメント欄 -->
-  <div class="comments">
-<?php
-  comments_template();
-?>
-  </div>
-
   <!-- ナビゲーター -->
   <div class="navigator">
     <span class="nav-previous"><?php previous_post_link('%link', '前のおもちゃへ'); ?></span>

@@ -21,8 +21,7 @@ function new_post_type_works() {
                 'title',               // タイトル
                 'editor',              // 本文（の編集機能）
                 'thumbnail',           // アイキャッチ画像
-                'custom-fields',
-                'excerpt',             // 抜粋
+                'custom-fields',       // カスタムフィールド
                 'comments'             // コメント
             ),
             'menu_position' => 5       // 「投稿」の下に追加
@@ -90,10 +89,7 @@ function new_post_type_leonardotoys() {
             'supports'     => array(   // 記事編集画面に表示する項目を配列で指定することができる
                 'title',               // タイトル
                 'editor',              // 本文（の編集機能）
-                'thumbnail',           // アイキャッチ画像
-                'custom-fields',
-                'excerpt',             // 抜粋
-                'comments'             // コメント
+                'custom-fields',       // カスタムフィールド
             ),
             'menu_position' => 5       // 「投稿」の下に追加
         )
