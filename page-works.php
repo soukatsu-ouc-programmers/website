@@ -24,8 +24,8 @@ Template Name: Works
   the_content();
 ?>
 
-  <h2>カテゴリー一覧</h>
-  <ui>
+  <h2>カテゴリー一覧</h2>
+  <ul>
 <?php
   $terms_category = get_terms('works_category');
   foreach($terms_category as $term):
@@ -60,17 +60,16 @@ Template Name: Works
     </span>
   </h2>
 
-  <!-- 関連付けられたタグ -->
-  <div class="post-tag">
+  <!-- 関連付けられたカテゴリー -->
+  <div class="post-category">
 <?php
-    foreach($terms_tag as $term) :
+    foreach($terms_category as $term):
 ?>
-    <a href="<?php echo esc_url(get_term_link($term->slug, 'works_tag')); ?>"><?php echo esc_html($term->name); ?></a>
+    <a href="<?php echo esc_url(get_term_link($term->slug, 'works_category')); ?>"><?php echo esc_html($term->name); ?></a>
 <?php
     endforeach;
 ?>
   </div>
-
 
   <div class="text clear-float">
     <!-- アイキャッチ -->
@@ -85,13 +84,13 @@ Template Name: Works
     the_content('続きを読む');
 ?>
   </div>
-
-  <!-- 関連付けられたカテゴリー -->
-  <div class="post-category">
+  
+  <!-- 関連付けられたタグ -->
+  <div class="post-tag">
 <?php
-    foreach($terms_category as $term):
+    foreach($terms_tag as $term) :
 ?>
-    <a href="<?php echo esc_url(get_term_link($term->slug, 'works_category')); ?>"><?php echo esc_html($term->name); ?></a>
+    <a href="<?php echo esc_url(get_term_link($term->slug, 'works_tag')); ?>"><?php echo esc_html($term->name); ?></a>
 <?php
     endforeach;
 ?>
