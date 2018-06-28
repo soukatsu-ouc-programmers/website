@@ -22,21 +22,21 @@ Template Name: レオナルドのおもちゃ箱単一記事
 <div class="content">
   <h1>レオナルドのおもちゃ：<?php the_title(); ?><span class="update-date">（<?php the_time('Y/m/d'); ?>）</span></h1>
 
+  <!-- 関連付けられたタグ -->
+  <div class="post-tag">
+<?php
+  foreach($terms_tag as $term):
+?>
+    <a href="<?php echo esc_url(get_term_link($term->slug, 'leonardotoys_tag')); ?>"><?php echo esc_html($term->name); ?></a>
+<?php
+  endforeach;
+?>
+  </div>
+
   <!-- 記事本文 -->
   <div class="text">
 <?php
   the_content();
-?>
-  </div>
-
-  <!-- 関連付けられたタグ -->
-  <div class="post_tag">
-<?php
-  foreach($terms_tag as $term):
-?>
-    <a href="<?php echo esc_url(get_term_link($term->slug, 'leonardotoys_tag')); ?>">#<?php echo esc_html($term->name); ?></a>
-<?php
-  endforeach;
 ?>
   </div>
 

@@ -14,6 +14,18 @@ Template Name: Blog
 <!-- 本文欄 -->
 <div class="content">
   <h1><?php the_title(); ?></h1>
+
+  <!-- 関連付けられたタグ -->
+  <div class="post-tag">
+<?php
+    foreach(get_the_tags() as $tag):
+?>
+    <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>"><?php echo esc_html($tag->name); ?></a>
+<?php
+    endforeach;
+?>
+  </div>
+
 <?php
   the_post();
 
@@ -51,16 +63,6 @@ Template Name: Blog
 ?>
   </div>
 
-  <!-- 関連付けられたタグ -->
-  <div class="post_tag">
-<?php
-    foreach(get_the_tags() as $tag):
-?>
-    <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>">#<?php echo esc_html($tag->name); ?></a>
-<?php
-    endforeach;
-?>
-  </div>
 <?php
   endwhile;
   wp_reset_postdata();

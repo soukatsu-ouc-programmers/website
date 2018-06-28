@@ -31,6 +31,17 @@ Template Name: Works単一記事
 <div class="content">
   <h1><?php the_title(); ?><span class="update-date">（<?php the_time('Y/m/d'); ?>）</span></h1>
 
+  <!-- 関連付けられたタグ -->
+  <div class="post-tag">
+<?php
+  foreach($terms_tag as $term):
+?>
+    <a href="<?php echo esc_url(get_term_link($term->slug, 'works_tag')); ?>"><?php echo esc_html($term->name); ?></a>
+<?php
+  endforeach;
+?>
+  </div>
+
   <!-- アイキャッチ -->
   <div class="thumbnail-full">
 <?php
@@ -46,22 +57,11 @@ Template Name: Works単一記事
   </div>
 
   <!-- 関連付けられたカテゴリー -->
-  <div class="post_category">
+  <div class="post-category">
 <?php
   foreach($terms_category as $term) :
 ?>
     <a href="<?php echo esc_url(get_term_link($term->slug, 'works_category')); ?>"><?php echo esc_html($term->name); ?></a>
-<?php
-  endforeach;
-?>
-  </div>
-
-  <!-- 関連付けられたタグ -->
-  <div class="post_tag">
-<?php
-  foreach($terms_tag as $term):
-?>
-    <a href="<?php echo esc_url(get_term_link($term->slug, 'works_tag')); ?>">#<?php echo esc_html($term->name); ?></a>
 <?php
   endforeach;
 ?>

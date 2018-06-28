@@ -14,7 +14,7 @@ Template Name: レオナルドの部屋
 <!-- 本文欄 -->
 <div class="content">
   <h1><?php the_title(); ?></h1>
-  <img src="<?php bloginfo('template_url'); ?>/img/logo.jpg" width="750"><br>
+  <p><img src="<?php bloginfo('template_url'); ?>/img/logo.jpg" width="750"></p>
 
   <!-- 追従式レオナルド -->
   <div class="pc follow-leonardo">
@@ -47,8 +47,10 @@ Template Name: レオナルドの部屋
   wp_reset_postdata();
 ?>
  </ul>
- <br>
-  ※ Windows/Mac/Linux/iOS/Android に対応しています。<br>
+
+  <p>
+    ※ Windows/Mac/Linux/iOS/Android に対応しています。
+  </p>
 </div><!-- content -->
 
 <?php get_footer(); ?>

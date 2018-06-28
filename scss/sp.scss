@@ -81,8 +81,8 @@
       }
 	  }
 
+    // 開いた状態のメニュー
     dt.open {
-	  // 開いた状態のメニュー
       &::before {
         content: "▲";
         font-size: 15px;

@@ -31,9 +31,25 @@ h1 {
 
 h2 {
   margin: 10px 0 5px -10px;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #888888;
   font-weight: bold;
   font-size: 14px;
+
+  a {
+    &:link {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    &:hover {
+      color: #666;
+      text-decoration: none;
+    }
+
+    &:visited {
+      color: #333;
+    }
+  }
 }
 
 h3 {
@@ -436,4 +452,36 @@ body {
   right: 0;
   bottom: 0;
   z-index: 1;
+}
+
+// カテゴリー
+.post-category {
+  text-align: right;
+}
+
+// タグ
+.post-tag {
+  a {
+    display: inline;
+    text-align: center;
+    color: $color_link_active;
+    background-color: $backcolor_tag;
+    padding: 3px 5px 3px 5px;
+    margin: 3px;
+    border-radius: 5px;
+
+    &:link {
+      color: $color_link_active;
+      text-decoration: none;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: $color_link_active;
+      text-decoration: none;
+    }
+  }
 }

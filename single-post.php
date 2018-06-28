@@ -21,21 +21,21 @@ Template Name: Blog単一記事
 <div class="content">
   <h1><?php the_title(); ?><span class="update-date">（<?php the_time('Y/m/d'); ?>）</span></h1>
 
+  <!-- 関連付けられたタグ -->
+  <div class="post-tag">
+<?php
+  foreach(get_the_tags() as $tag):
+?>
+    <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>"><?php echo esc_html($tag->name); ?></a>
+<?php
+  endforeach;
+?>
+  </div>
+
   <!-- 記事本文 -->
   <div class="text">
 <?php
   the_content();
-?>
-  </div>
-
-  <!-- 関連付けられたタグ -->
-  <div class="post_tag">
-<?php
-  foreach(get_the_tags() as $tag):
-?>
-    <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>">#<?php echo esc_html($tag->name); ?></a>
-<?php
-  endforeach;
 ?>
   </div>
 

@@ -73,7 +73,7 @@
     if(get_post_type() == 'post'):
 ?>
   <!-- 関連付けられたタグ -->
-  <div class="post_tag">
+  <div class="post-tag">
 <?php
       $tags = get_the_tags();
       foreach($tags as $tag):
@@ -92,7 +92,7 @@
     if(get_post_type() == 'works'):
 ?>
   <!-- 関連付けられたカテゴリー -->
-  <div class="post_category">
+  <div class="post-category">
 <?php
       $terms = get_the_terms($post->ID, 'works_category');
       foreach($terms as $term):
@@ -104,7 +104,7 @@
   </div>
 
   <!-- 関連付けられたタグ -->
-  <div class="post_tag">
+  <div class="post-tag">
 <?php
       $terms = get_the_terms($post->ID, 'works_tag');
       foreach($terms as $term):
@@ -123,7 +123,7 @@
     if(get_post_type() == 'leonardotoys'):
 ?>
   <!-- 関連付けられたタグ -->
-  <div class="post_tag">
+  <div class="post-tag">
 <?php
       $terms = get_the_terms($post->ID, 'leonardotoys_tag');
       foreach($terms as $term):

@@ -59,6 +59,19 @@ Template Name: Works
       （<?php the_time('Y/m/d'); ?>）
     </span>
   </h2>
+
+  <!-- 関連付けられたタグ -->
+  <div class="post-tag">
+<?php
+    foreach($terms_tag as $term) :
+?>
+    <a href="<?php echo esc_url(get_term_link($term->slug, 'works_tag')); ?>"><?php echo esc_html($term->name); ?></a>
+<?php
+    endforeach;
+?>
+  </div>
+
+
   <div class="text clear-float">
     <!-- アイキャッチ -->
     <div class="thumbnail">
@@ -74,7 +87,7 @@ Template Name: Works
   </div>
 
   <!-- 関連付けられたカテゴリー -->
-  <div class="post_category">
+  <div class="post-category">
 <?php
     foreach($terms_category as $term):
 ?>
@@ -84,21 +97,10 @@ Template Name: Works
 ?>
   </div>
 
-  <!-- 関連付けられたタグ -->
-  <div class="post_tag">
-<?php
-    foreach($terms_tag as $term) :
-?>
-    <a href="<?php echo esc_url(get_term_link($term->slug, 'works_tag')); ?>">#<?php echo esc_html($term->name); ?></a>
-<?php
-    endforeach;
-?>
-  </div>
 <?php
   endwhile;
   wp_reset_postdata();
 ?>
-
   <!-- ナビゲーター -->
 <?php
   if(function_exists('wp_pagenavi')):
