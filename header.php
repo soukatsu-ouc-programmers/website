@@ -8,8 +8,8 @@
   <meta id="description" content="小樽商科大学のサークル「創作活動部」のホームページです。">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/common.min.css">
-  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/sp.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/common.css">
+  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/sp.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Advent+Pro">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>

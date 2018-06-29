@@ -1,8 +1,7 @@
-/*********************************************************************
-*  投稿記事に関するスタイルを定義します。
-*********************************************************************/
+//*********************************************************************
+//  投稿記事に関するスタイルを定義します。
+//********************************************************************/
 @charset "UTF-8";
-@import "_variables.scss";
 
 
 // カテゴリー
@@ -12,31 +11,42 @@
 
 // タグ
 .post-tag {
+  margin-bottom: 15px;
+
   a {
     display: inline-block;
     text-align: center;
-    color: #a5a5a5!important;
+    color: #a5a5a5 !important;
     background-color: #f7f7f7;
     border: 1px solid #efefef;
+    margin: 2px;
     padding: 4px 5px 3px 3px;
     transition: opacity .2s;
-    &::before{
-      content: "#";
+    text-decoration: none;
+
+    &::before {
       display: inline;
     }
 
     &:link {
-      color:inherit;
+      color: inherit;
     }
 
     &:hover {
-      text-decoration: none;
       opacity: .5;
     }
 
     &:visited {
       color: inherit;
-      text-decoration: none;
     }
+  }
+}
+
+// 目次見出し
+.ez-toc-section {
+  font-weight: bold;
+
+  b {
+    font-weight: bold;
   }
 }

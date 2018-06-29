@@ -4,6 +4,7 @@ Template Name: About
 */
 ?>
 <?php get_header(); ?>
+<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/about.css">
 <?php
   // 見出しとカスタムフィールドのキーの対応付け定義
   $member_grade = array(
@@ -30,7 +31,10 @@ Template Name: About
 ?>
 
   <h2>部員紹介</h2>
-  <div class="toggleMenu">
+  <p>
+    クリックすると展開します。
+  </p>
+  <div class="toggleMenu" id="member-list">
     <!-- 以下の見出しに使われている h3 タグはjQueryの仕様で決められているため変更しないこと -->
 <?php
   // 学年ごとのカスタムフィールドのキーを走査
@@ -38,7 +42,7 @@ Template Name: About
     // この学年のデータをすべて取り出す
 ?>
     <h3><?php echo esc_html($summary); ?></h3>
-    <div class="text">
+    <div>
 <?php
     foreach(get_post_custom()[$field_key] as $member_text):
 ?>

@@ -1,0 +1,17 @@
+.post-category { text-align: right; }
+
+.post-tag { margin-bottom: 15px; }
+
+.post-tag a { display: inline-block; text-align: center; color: #a5a5a5 !important; background-color: #f7f7f7; border: 1px solid #efefef; margin: 2px; padding: 4px 5px 3px 3px; -webkit-transition: opacity .2s; transition: opacity .2s; text-decoration: none; }
+
+.post-tag a::before { display: inline; }
+
+.post-tag a:link { color: inherit; }
+
+.post-tag a:hover { opacity: .5; }
+
+.post-tag a:visited { color: inherit; }
+
+.ez-toc-section { font-weight: bold; }
+
+.ez-toc-section b { font-weight: bold; }
