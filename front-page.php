@@ -5,8 +5,8 @@ Template Name: Home
 ?>
 <?php get_header(); ?>
 
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/slick.min.css">
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/slick-theme.min.css">
+<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/slick.css">
+<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/slick-theme.css">
 <script src="<?php bloginfo('template_url'); ?>/js/slick.min.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/movie-slider.js"></script>
 

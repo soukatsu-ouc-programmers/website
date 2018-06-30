@@ -61,7 +61,9 @@ Template Name: About
 ?>
   </div>
 
-  他にも多数の部員が在籍しています。
+  <p>
+    他にも多数の部員が在籍しています。
+  </p>
 
 </div><!-- content -->
 
