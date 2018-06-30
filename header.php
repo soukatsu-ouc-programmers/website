@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/reset.css">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/common.css">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/sp.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Advent+Pro">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Advent+Pro|Roboto:400">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/jquery-ui.min.js"></script>
