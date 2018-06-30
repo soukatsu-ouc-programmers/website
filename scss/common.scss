@@ -3,7 +3,6 @@
 //********************************************************************/
 @charset "UTF-8";
 @import "_variables.scss";
-@import "post.scss";
 
 
 /*
@@ -73,7 +72,7 @@ h4 {
 h5 {
   display: block;
   font-weight: bold;
-  margin: 10px 0 7px 0;
+  margin: 10px 0 7px -15px;
 
   &:before {
     content: "・";
@@ -518,16 +517,6 @@ body {
 
 
 /*
-* WordPressプラグイン
-*/
-.ez-toc-container {
-  border: 4px double #ddd;
-  margin: 2em 0;
-  padding: 2em;
-}
-
-
-/*
 * 各ページ個別
 */
 // 追従するレオナルド
@@ -537,3 +526,7 @@ body {
   bottom: 0;
   z-index: 1;
 }
+
+
+// 外部ファイルのインポート
+@import "post.scss";

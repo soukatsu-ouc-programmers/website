@@ -76,4 +76,89 @@ function is_mobile() {
 //---------------------------------------------------------------------------
 include_once(TEMPLATEPATH . "/custom-post-type.php");
 
+
+//---------------------------------------------------------------------------
+//　コメント欄の生成
+//---------------------------------------------------------------------------
+function create_comment_form($comment, $args, $depth) {
+  // ログインユーザーを取得
+  $user = wp_get_current_user();
+
+    // 最初の開始タグ li に対する終了タグはWordPressが自動で付加する
+?>
+  <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+    <div id="comment-<?php comment_ID(); ?>">
+      <div class="comment-list">
+        <div class="comment-header">
+          <!-- 投稿者名 -->
+          <div class="comment-author">
+<?php
+  if(is_user_logged_in() && $user->display_name == get_comment_author()):
+    // 自分の投稿のとき、投稿者名を太字にする
+?>
+            <span class="comment-author-me"><?php echo get_comment_author_link(); ?></span>
+<?php
+  else:
+?>
+            <?php echo get_comment_author_link(); ?>
+<?php
+  endif;
+?>
+          </div>
+
+          <div class="comment-info">
+            <!-- 投稿日時 -->
+            <div class="comment-datetime"><?php echo (get_comment_date('Y/m/d') . ' ' . get_comment_time('H:i:s')); ?></div>
+            <!-- 編集ボタン -->
+<?php
+  $edit_link = get_edit_comment_link();
+  if($edit_link):
+?>
+            <div class="comment-edit"><a href="<?php echo esc_url($edit_link); ?>">編集</a></div>
+<?php
+  endif;
+?>
+          </div>
+        </div>
+
+<?php
+  if($comment->comment_approved == '0'):
+?>
+        <em><?php echo 'このコメントはサイト管理者の承認待ちです。' ?></em>
+<?php
+  endif;
+?>
+
+        <!-- コメント本文 -->
+        <div class="comment-text">
+          <?php comment_text(); ?>
+        </div>
+
+        <!-- 返信ボタン -->
+        <div class="comment-reply-wrapper">
+          <div class="comment-reply">
+<?php
+  comment_reply_link(
+    array_merge(
+      $args,
+      array(
+        'depth' => $depth,
+        'max_depth' => $args['max_depth']
+      )
+    )
+  );
+?>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<?php
+}
+
+//---------------------------------------------------------------------------
+//　ログインしているときのコメント欄の表示
+//---------------------------------------------------------------------------
+add_filter( 'comment_form_logged_in', '__return_empty_string' );
+
 ?>

@@ -2,6 +2,7 @@
 //  投稿記事に関するスタイルを定義します。
 //********************************************************************/
 @charset "UTF-8";
+@import "comment.scss";
 
 
 // カテゴリー
@@ -42,11 +43,29 @@
   }
 }
 
-// 目次見出し
-.ez-toc-section {
-  font-weight: bold;
+// コメント欄
+.comment-form-label {
+  display: block;
+}
 
-  b {
-    font-weight: bold;
+// ナビゲーター
+#navigator {
+  width: 98%;
+  overflow: hidden;
+  text-align: center;
+
+  #nav-previous {
+    float: left;
+  }
+
+  #nav-home {
+    display: inline-block;
+    font-size: 64pt;
+    color: #eee;
+    text-shadow: 0px 1px 1px #bbb;
+  }
+
+  #nav-next {
+    float: right;
   }
 }

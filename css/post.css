@@ -12,6 +12,4 @@
 
 .post-tag a:visited { color: inherit; }
 
-.ez-toc-section { font-weight: bold; }
-
-.ez-toc-section b { font-weight: bold; }
+.comment-form-label { display: block; }

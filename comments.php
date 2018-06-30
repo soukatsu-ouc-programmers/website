@@ -4,10 +4,10 @@
 <?php
   if(have_comments()):
 ?>
-  <h1 id="comments">コメント</h3>
+  <h3 id="comments">コメント</h3>
   <ol class="commets-list">
 <?php
-    wp_list_comments();
+    wp_list_comments('callback=create_comment_form');
 ?>
   </ol>
 <?php
@@ -16,30 +16,32 @@
 
 <!-- 投稿欄 -->
 <?php
+  // ログインユーザーを取得
+  $user = wp_get_current_user();
+
   comment_form(
     array(
-      'title_reply'          => 'コメントを投稿',
-      'label_submit'         => '投稿',
+      'title_reply'          => (is_user_logged_in() ? ('「' . $user->display_name . '」として') : '') . 'コメントを投稿',
+      'label_submit'         => '送信',
       'comment_notes_before' => '<p class="commentNotesBefore">入力エリアすべてが必須項目です。メールアドレスが公開されることはありません。</p>',
-      'comment_notes_after'  => '<p class="commentNotesAfter">内容をご確認の上、投稿して下さい。</p>',
-      'comment_field'        => '<p class="comment-form-comment">' .
-                                '<textarea id="comment" name="comment" cols="50" rows="6" aria-required="true"' .
+      'comment_notes_after'  => '',
+      'comment_field'        => '<textarea id="comment" name="comment" cols="50" rows="6" aria-required="true"' .
                                 $aria_req .
-                                ' placeholder="コメント本文を入力して下さい..." /></textarea></p>',
+                                ' placeholder="コメント本文を入力して下さい..." /></textarea>',
       'fields' => array(
         'author' => '<p class="comment-form-author">' .
-                    '名前/HN: ' .
+                    '<div class="comment-form-label">名前/HN:</div>' .
                     '<input id="author" name="author" type="text" value="" size="30"' .
                     $aria_req .
                     ' placeholder="名無しさん" /></p>',
         'email'  => '<p class="comment-form-email">' .
-                    'メールアドレス: ' .
+                    '<div class="comment-form-label">メールアドレス:</div>' .
                     '<input id="email" name="email" ' .
                     ($html5 ? 'type="email"' : 'type="text"') .
                     ' value="" size="30"' .
                     $aria_req .
                     'placeholder="hoge@gmail.com" /></p>',
-        'url'    => '',
+        'description' => '<p class="commentNotesAfter">内容をご確認の上、送信ボタンを押して下さい。</p>'
       ),
     )
   );

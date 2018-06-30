@@ -24,6 +24,7 @@
   wp_deregister_script('jquery');
   wp_head();
 ?>
+  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/ez-toc.css">
 </head>
 
 <body>

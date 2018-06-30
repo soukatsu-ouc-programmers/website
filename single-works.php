@@ -75,9 +75,10 @@ Template Name: Works単一記事
   </div>
 
   <!-- ナビゲーター -->
-  <div class="navigator">
-    <span class="nav-previous"><?php previous_post_link('%link', '前の作品へ'); ?></span>
-    <span class="nav-next"><?php next_post_link('%link', '次の作品へ'); ?></span>
+  <div id="navigator">
+    <div id="nav-previous"><?php previous_post_link('%link', '前の作品へ'); ?></div>
+    <div id="nav-home"><i class="fa fa-home"></i></div>
+    <div id="nav-next"><?php next_post_link('%link', '次の作品へ'); ?></div>
   </div>
 
 </div><!-- content -->

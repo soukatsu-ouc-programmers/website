@@ -1,0 +1,99 @@
+//*********************************************************************
+//  コメント欄のスタイルを定義します。
+//********************************************************************/
+@charset "UTF-8";
+
+
+// コメントヘッダー
+.comment-header {
+  overflow: hidden;
+}
+
+// 投稿者名
+.comment-author {
+  float: left;
+  display: block;
+  text-align: left;
+}
+
+// 投稿者名が自分のとき
+.comment-author-me {
+  font-weight: bold;
+}
+
+// 投稿日時と編集ボタン
+.comment-info {
+  float: right;
+  display: block;
+
+  // 投稿日時
+  .comment-datetime {
+    display: inline-block;
+    text-align: right;
+    color: $color_date;
+  }
+
+  // コメントの編集
+  .comment-edit {
+    display: inline-block;
+    text-align: right;
+    margin-left: 10px;
+  }
+}
+
+// コメント本文
+.comment-text {
+  padding: 0 10px;
+  margin: 5px 0;
+  background: #f0f7ff7a;
+  border: dashed 2px #5b8bd0;
+
+  p {
+    margin: 5px 0;
+  }
+}
+
+// コメント返信
+ul.children {
+  list-style-type: none;
+  margin: 0 0 0 30px !important;
+}
+
+// コメント返信をキャンセル
+#cancel-comment-reply-link {
+  margin-left: 10px;
+}
+
+// 返信ボタン
+.comment-reply-wrapper {
+  display: inline-block;
+  text-align: right;
+  width: 100%;
+
+  .comment-reply {
+    display: inline-block;
+    text-align: center;
+    color: $color_link_active;
+    background-color: $backcolor_button;
+    padding: 3px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    width: 70px;
+
+    a {
+      &:link {
+        color: $color_link_active;
+        text-decoration: none;
+  	  }
+
+      &:hover {
+          text-decoration: underline;
+  	  }
+
+      &:visited {
+        color: $color_link_active;
+        text-decoration: none;
+      }
+    }
+  }
+}

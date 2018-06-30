@@ -30,11 +30,7 @@
   /*
   * 各種見出し・タグ
   */
-  h1 {
-    margin-left: 0;
-  }
-
-  h2 {
+  h1, h2, h3, h4, h5, h6 {
     margin-left: 0;
   }
 
@@ -192,7 +188,6 @@
 	  margin-left: 20px;
 
     img {
-      width: 25%;
       height: auto;
     }
   }
@@ -226,6 +221,14 @@
       font-size: 24px;
       text-decoration: none;
     }
+  }
+
+
+  /*
+  * 目次プラグイン
+  */
+  #ez-toc-container {
+    width: 95% !important;
   }
 
 }

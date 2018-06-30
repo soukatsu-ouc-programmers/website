@@ -4,8 +4,7 @@
   #menu { display: none; }
   .sp-br { display: none; }
   /* 各種見出し・タグ */
-  h1 { margin-left: 0; }
-  h2 { margin-left: 0; }
+  h1, h2, h3, h4, h5, h6 { margin-left: 0; }
   /* 全ページ共通 */
   #container { width: 100%; }
   #main { width: 95%; margin: 0 auto; }
@@ -29,8 +28,10 @@
   .content { margin: 0; padding-left: 5px; }
   .content img { width: 100%; height: auto; }
   .thumbnail { margin-left: 20px; }
-  .thumbnail img { width: 25%; height: auto; }
+  .thumbnail img { height: auto; }
   .ad { float: left; width: 48%; margin: 5px 5px 20px 5px; }
   .ad img { width: 100%; height: auto; }
   .pagetop { z-index: 100; position: fixed; right: -50px; bottom: 60px; }
-  .pagetop a { display: block; width: 50px; background-color: #29abe2; border-radius: 5px 0px 0px 5px; text-align: center; color: #ffffff; font-size: 24px; text-decoration: none; } }
+  .pagetop a { display: block; width: 50px; background-color: #29abe2; border-radius: 5px 0px 0px 5px; text-align: center; color: #ffffff; font-size: 24px; text-decoration: none; }
+  /* 目次プラグイン */
+  #ez-toc-container { width: 95% !important; } }

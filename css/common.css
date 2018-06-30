@@ -1,22 +1,4 @@
 @charset "UTF-8";
-.post-category { text-align: right; }
-
-.post-tag { margin-bottom: 15px; }
-
-.post-tag a { display: inline-block; text-align: center; color: #a5a5a5 !important; background-color: #f7f7f7; border: 1px solid #efefef; margin: 2px; padding: 4px 5px 3px 3px; -webkit-transition: opacity .2s; transition: opacity .2s; text-decoration: none; }
-
-.post-tag a::before { display: inline; }
-
-.post-tag a:link { color: inherit; }
-
-.post-tag a:hover { opacity: .5; }
-
-.post-tag a:visited { color: inherit; }
-
-.ez-toc-section { font-weight: bold; }
-
-.ez-toc-section b { font-weight: bold; }
-
 /*
 * 変数定義
 */
@@ -39,7 +21,7 @@ h3 { font-size: 15px; font-weight: bold; margin: 30px 0 10px -20px; padding: 0.2
 
 h4 { display: block; font-weight: bold; font-size: 14px; margin-left: -20px; }
 
-h5 { display: block; font-weight: bold; margin: 10px 0 7px 0; }
+h5 { display: block; font-weight: bold; margin: 10px 0 7px -15px; }
 
 h5:before { content: "・"; margin-right: 3px; }
 
@@ -194,11 +176,60 @@ body { font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "�
 .slick-slider { margin-bottom: 50px !important; }
 
 /*
-* WordPressプラグイン
-*/
-.ez-toc-container { border: 4px double #ddd; margin: 2em 0; padding: 2em; }
-
-/*
 * 各ページ個別
 */
 .follow-leonardo { position: fixed; right: 0; bottom: 0; z-index: 1; }
+
+.comment-header { overflow: hidden; }
+
+.comment-author { float: left; display: block; text-align: left; }
+
+.comment-author-me { font-weight: bold; }
+
+.comment-info { float: right; display: block; }
+
+.comment-info .comment-datetime { display: inline-block; text-align: right; color: #b3b3b3; }
+
+.comment-info .comment-edit { display: inline-block; text-align: right; margin-left: 10px; }
+
+.comment-text { padding: 0 10px; margin: 5px 0; background: #f0f7ff7a; border: dashed 2px #5b8bd0; }
+
+.comment-text p { margin: 5px 0; }
+
+ul.children { list-style-type: none; margin: 0 0 0 30px !important; }
+
+#cancel-comment-reply-link { margin-left: 10px; }
+
+.comment-reply-wrapper { display: inline-block; text-align: right; width: 100%; }
+
+.comment-reply-wrapper .comment-reply { display: inline-block; text-align: center; color: #ffffff; background-color: #29abe2; padding: 3px; margin-bottom: 20px; border-radius: 3px; width: 70px; }
+
+.comment-reply-wrapper .comment-reply a:link { color: #ffffff; text-decoration: none; }
+
+.comment-reply-wrapper .comment-reply a:hover { text-decoration: underline; }
+
+.comment-reply-wrapper .comment-reply a:visited { color: #ffffff; text-decoration: none; }
+
+.post-category { text-align: right; }
+
+.post-tag { margin-bottom: 15px; }
+
+.post-tag a { display: inline-block; text-align: center; color: #a5a5a5 !important; background-color: #f7f7f7; border: 1px solid #efefef; margin: 2px; padding: 4px 5px 3px 3px; -webkit-transition: opacity .2s; transition: opacity .2s; text-decoration: none; }
+
+.post-tag a::before { display: inline; }
+
+.post-tag a:link { color: inherit; }
+
+.post-tag a:hover { opacity: .5; }
+
+.post-tag a:visited { color: inherit; }
+
+.comment-form-label { display: block; }
+
+#navigator { width: 98%; overflow: hidden; text-align: center; }
+
+#navigator #nav-previous { float: left; }
+
+#navigator #nav-home { display: inline-block; font-size: 64pt; color: #eee; text-shadow: 0px 1px 1px #bbb; }
+
+#navigator #nav-next { float: right; }
