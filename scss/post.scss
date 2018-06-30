@@ -2,10 +2,11 @@
 //  投稿記事に関するスタイルを定義します。
 //********************************************************************/
 @charset "UTF-8";
+@import "_variables.scss";
 @import "comment.scss";
 
 
-.ttl-main{
+.title-main{
   font-size: 50px;
   font-weight: normal;
   margin: 20px 0 30px;
@@ -34,14 +35,16 @@
   }
 }
 
+
 //カテゴリー一覧
 .content-category{
   text-align: center;
-  margin-bottom: 60px;
   background: #f7f7f7;
   padding: 15px 0;
   border: 1px solid #e8e8e8;
-  .ttl-sub{
+  margin: 0 auto 60px;
+  width: 80%;
+  .title-sub{
     text-align: center;
     font-weight: 400;
     margin: 0;
@@ -81,7 +84,7 @@
 }
 
 //記事タイトル
-.post-ttl {
+.post-title {
   font-weight: 600;
   font-size: 17px;
   margin-bottom: 20px;
@@ -94,7 +97,6 @@
     font-weight: inherit;
   }
 }
-
 
 // カテゴリー
 .post-category {
@@ -110,6 +112,11 @@
     position: absolute;
     top: 0;
     right: 0;
+    transition: opacity .2s;
+
+    &:hover {
+      opacity: .5;
+    }
   }
 }
 
@@ -119,6 +126,7 @@
   margin-bottom: 20px;
   .thumbnail{
     margin-right: 0;
+    float: none;
     img{
       border: 1px solid #f1f1f1;
       padding: 7px;
@@ -138,6 +146,7 @@
 // タグ
 .post-tag {
   // margin-bottom: 15px;
+  font-size: 0;
   margin-bottom: 0;
   a {
     display: inline-block;
@@ -152,7 +161,7 @@
     letter-spacing: 0.03em;
     padding: 4px 5px 3px;
     line-height: 1;
-    margin: 0 2px 0 0;
+    margin: 0 4px 4px 0;
 
     &::before {
       display: inline;
@@ -166,12 +175,62 @@
     }
 
     &:hover {
-      opacity: .5;
+      opacity: .7;
     }
 
     &:visited {
       color: inherit;
     }
+  }
+}
+
+.content.post{
+  .ttl-main{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px 0 30px 0px;
+    letter-spacing: 1px;
+    text-align: center;
+    &::before{
+      content: none;
+    }
+    .update-date{
+      display: block;
+      text-align: center;
+      width:auto;
+    }
+  }
+  .post-category {
+    text-align: center;
+    margin-bottom: 40px;
+    a{
+      position: relative;
+      right: auto;
+      top: auto;
+    }
+  }
+  .post-text{
+    display: block;
+    margin-bottom: 60px;
+    h3 {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+      color: #494949;
+      background: none;
+      border-left: none;
+      border-bottom: 1px solid;
+    }
+    p + h3 {
+      margin-top: 40px;
+    }
+    .youtube{
+      margin-bottom: 40px;
+    }
+  }
+  .post-tag {
+    margin-bottom: 30px;
   }
 }
 
@@ -184,29 +243,46 @@
   }
 }
 
-// コメント欄
-.comment-form-label {
-  display: block;
-}
 
 // ナビゲーター
 #navigator {
-  width: 98%;
-  overflow: hidden;
+  width: 100%;
+  // overflow: hidden;
   text-align: center;
-
-  #nav-previous {
-    float: left;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  flex-flow: row;
+  align-items: center;
+  margin-top: 50px;
+  a{
+    text-decoration: none;
+    transition: all .2s;
+    display: block;
+    &:hover{
+      opacity: .5;
+    }
   }
-
-  #nav-home {
+  .pager-arrow{
+    font-size: 30px;
+    .fa{
+      font-size: 38px;
+      color: rgba(154, 154, 154, 0.5);
+      text-shadow: 1px 1px 1px #fff, 0px 0px #bbb;
+    }
+  }
+  .pager-home{
     display: inline-block;
-    font-size: 64pt;
-    color: #eee;
-    text-shadow: 0px 1px 1px #bbb;
-  }
-
-  #nav-next {
-    float: right;
+    line-height: 1;
+    .fa{
+      font-size: 38px;
+      color: rgba(154, 154, 154, 0.5);
+      text-shadow: 1px 1px 1px #fff, 0px 0px #bbb;
+    }
+    span{
+      color: #999;
+      font-size: 11px;
+      display: block;
+    }
   }
 }

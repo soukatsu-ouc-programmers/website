@@ -4,6 +4,8 @@ Template Name: Works単一記事
 */
 ?>
 <?php get_header(); ?>
+<link rel="stylesheet" href="/wp-content/themes/createactouc/css/post.css">
+
 <?php
   if(have_posts()):
     the_post();
@@ -28,15 +30,15 @@ Template Name: Works単一記事
 </div>
 
 <!-- 本文欄 -->
-<div class="content">
-  <h1><?php the_title(); ?><span class="update-date">（<?php the_time('Y/m/d'); ?>）</span></h1>
+<div class="content post">
+  <h1 class="ttl-main"><?php the_title(); ?><span class="update-date">（<?php the_time('Y/m/d'); ?>）</span></h1>
 
-  <!-- 関連付けられたタグ -->
-  <div class="post-tag">
+  <!-- 関連付けられたカテゴリー -->
+  <div class="post-category">
 <?php
-  foreach($terms_tag as $term):
+  foreach($terms_category as $term) :
 ?>
-    <a href="<?php echo esc_url(get_term_link($term->slug, 'works_tag')); ?>"><?php echo esc_html($term->name); ?></a>
+    <a href="<?php echo esc_url(get_term_link($term->slug, 'works_category')); ?>"><?php echo esc_html($term->name); ?></a>
 <?php
   endforeach;
 ?>
@@ -50,20 +52,20 @@ Template Name: Works単一記事
   </div>
 
   <!-- 記事本文 -->
-  <div class="text">
+  <div class="post-text">
 <?php
   the_content();
 ?>
   </div>
 
-  <!-- 関連付けられたカテゴリー -->
-  <div class="post-category">
+  <!-- 関連付けられたタグ -->
+  <div class="post-tag">
 <?php
-  foreach($terms_category as $term) :
+foreach($terms_tag as $term):
 ?>
-    <a href="<?php echo esc_url(get_term_link($term->slug, 'works_category')); ?>"><?php echo esc_html($term->name); ?></a>
+    <a href="<?php echo esc_url(get_term_link($term->slug, 'works_tag')); ?>"><?php echo esc_html($term->name); ?></a>
 <?php
-  endforeach;
+endforeach;
 ?>
   </div>
 
@@ -76,9 +78,9 @@ Template Name: Works単一記事
 
   <!-- ナビゲーター -->
   <div id="navigator">
-    <div id="nav-previous"><?php previous_post_link('%link', '前の作品へ'); ?></div>
-    <div id="nav-home"><i class="fa fa-home"></i></div>
-    <div id="nav-next"><?php next_post_link('%link', '次の作品へ'); ?></div>
+    <div id="nav-previous" class="pager-arrow"><?php previous_post_link('%link', '<i class="fa fa-angle-left" aria-hidden="true"></i>'); ?></div>
+    <div id="nav-home" class="pager-home"><a href="<?php echo esc_url(get_permalink(get_page_by_title('Works'))); ?>"><i class="fa fa-home"></i><span>Works</span></a></div>
+    <div id="nav-next" class="pager-arrow"><?php next_post_link('%link', '<i class="fa fa-angle-right" aria-hidden="true"></i>'); ?></div>
   </div>
 
 </div><!-- content -->

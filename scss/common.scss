@@ -8,7 +8,8 @@
 /*
 * 変数定義
 */
-$contents_width: ($page_width - $menu_width - $menu_right_margin - $contents_margin);
+// $contents_width: ($page_width - $menu_width - $menu_right_margin - $contents_margin);
+$contents_width: ($page_width - $menu_width - $menu_right_margin);
 $contents_right_width: 200px;
 $contents_left_width: ($contents_width - $contents_split_distance - $contents_right_width);
 
@@ -313,12 +314,13 @@ body {
 #contents {
   width: $contents_width;
   float: right;
-  margin: $contents_margin 0px $contents_margin 0px;
+  margin: 20px 0;
   padding: $contents_margin;
   background-color: $backcolor_contents;
   box-shadow: 0px 2px 2px #8A8A8A;
   border-radius: 3px;
   border-collapse: collapse;
+  box-sizing: border-box;
 }
 
 // コンテンツを左右に分離するときに使うコンテナー
@@ -389,8 +391,7 @@ body {
 
 // 本文欄
 .content {
-  margin-left: $text_indent;
-
+  // margin-left: $text_indent;
   ul {
     list-style-type: disc;
     margin: 10px 30px;

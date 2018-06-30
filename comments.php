@@ -4,8 +4,8 @@
 <?php
   if(have_comments()):
 ?>
-  <h3 id="comments">コメント</h3>
-  <ol class="commets-list">
+  <h3 id="comments" class="comment-title">コメント</h3>
+  <ol class="comments-list">
 <?php
     wp_list_comments('callback=create_comment_form');
 ?>

@@ -14,7 +14,7 @@ Template Name: Works
 
 <!-- 本文欄 -->
 <div class="content">
-  <h1 class="ttl-main"><?php the_title(); ?></h1>
+  <h1 class="title-main"><?php the_title(); ?></h1>
 <?php
   the_post();
 
@@ -27,7 +27,7 @@ Template Name: Works
   </div>
 
   <div class="content-category">
-    <h2 class="ttl-sub">Category</h2>
+    <h2 class="title-sub">Category</h2>
     <ul class="category-list">
   <?php
     $terms_category = get_terms('works_category');
@@ -56,7 +56,7 @@ Template Name: Works
 ?>
   <article class="post-article">
     
-  <h2 class="<?php echo esc_attr(get_post_type()); ?> post-ttl">
+  <h2 class="<?php echo esc_attr(get_post_type()); ?> post-title">
     <a href="<?php esc_url(the_permalink()); ?>">
       <?php the_title(); ?>
     </a>
