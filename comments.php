@@ -4,7 +4,7 @@
 <?php
   if(have_comments()):
 ?>
-  <h3 id="comments" class="comment-title"><?php comments_number(); ?>件のコメント</h3>
+  <h3 id="comments" class="comment-title"><?php echo get_comments_number(); ?>件のコメント</h3>
   <ol class="comments-list">
 <?php
     wp_list_comments('callback=create_comment_form');
