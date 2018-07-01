@@ -135,3 +135,10 @@ ul.children {
     }
   }
 }
+
+
+@media screen and (max-width : $sp-max-width) {
+  .comments{
+    padding: 15px;
+  }
+}

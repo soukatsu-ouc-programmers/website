@@ -1,37 +1,166 @@
 @charset "UTF-8";
-@media screen and (max-width: 800px) { /* PC専用のレイアウトを無効にする */
-  .pc { display: none; }
-  #menu { display: none; }
-  .sp-br { display: none; }
-  /* 各種見出し・タグ */
-  h1, h2, h3, h4, h5, h6 { margin-left: 0; }
-  /* 全ページ共通 */
-  #container { width: 100%; }
-  #main { width: 95%; margin: 0 auto; }
-  #sp-menu-container { display: block; }
-  #sp-menu dt { width: 100%; cursor: pointer; background-color: #1a1a1a; color: #ffffff; font-size: 28px; font-weight: bold; border-bottom: solid 5px #29abe2; }
-  #sp-menu dt:hover { text-decoration: none; }
-  #sp-menu dt:before { content: "▼"; font-size: 15px; float: right; right: 20px; top: 15px; position: relative; }
-  #sp-menu dt.open::before { content: "▲"; font-size: 15px; float: right; right: 20px; top: 15px; position: relative; }
-  #sp-menu dd { width: 100%; display: none; font-size: 20px; color: #ffffff; font-family: "Advent Pro", sans-serif; background-color: #1a1a1a; text-shadow: -1px 0 2px #000000; }
-  #sp-menu li { padding: 0px 20px 5px 20px; border-bottom: 1px solid #666666; }
-  #sp-menu a { color: #7C7C7C; text-decoration: none; display: block; }
-  #sp-menu a:visited { color: #7C7C7C; }
-  #sp-menu a:hover { color: #ffffff; -webkit-transform: translateX(5px); transform: translateX(5px); }
-  #contents { width: 95%; float: none; margin: auto; margin-top: 20px; padding: 10px 10px 10px 10px; }
-  #contents-left { width: 100%; float: none; margin: 0; width: 100%; }
-  #contents-right { width: 100%; float: none; margin: 0; width: 100%; text-align: center; }
-  #sp-logo { display: block; margin: 20px; }
-  #description { font-size: 10px; text-align: center; margin-bottom: 5px; }
-  #copyright { font-size: 10px; margin: 20px; }
-  .menu-comment { float: right; padding-top: 10px; margin-left: 10px; font-size: 12px; font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; }
-  .content { margin: 0; padding-left: 5px; }
-  .content img { width: 100%; height: auto; }
-  .thumbnail { margin-left: 20px; }
-  .thumbnail img { height: auto; }
-  .ad { float: left; width: 48%; margin: 5px 5px 20px 5px; }
-  .ad img { width: 100%; height: auto; }
-  .pagetop { z-index: 100; position: fixed; right: -50px; bottom: 60px; }
-  .pagetop a { display: block; width: 50px; background-color: #29abe2; border-radius: 5px 0px 0px 5px; text-align: center; color: #ffffff; font-size: 24px; text-decoration: none; }
-  /* 目次プラグイン */
-  #ez-toc-container { width: 95% !important; } }
+@media screen and (max-width: 800px) {
+  /*
+  * PC専用のレイアウトを無効にする
+  */
+  .pc {
+    display: none;
+  }
+  #menu {
+    display: none;
+  }
+  .sp-br {
+    display: none;
+  }
+  /*
+  * 各種見出し・タグ
+  */
+  h1, h2, h3, h4, h5, h6 {
+    margin-left: 0;
+  }
+  /*
+  * 全ページ共通
+  */
+  #container {
+    width: 100%;
+  }
+  #main {
+    width: 95%;
+    margin: 0 auto;
+  }
+  #sp-menu-container {
+    display: block;
+  }
+  #sp-menu dt {
+    width: 100%;
+    cursor: pointer;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    border-bottom: solid 5px #29abe2;
+  }
+  #sp-menu dt:hover {
+    text-decoration: none;
+  }
+  #sp-menu dt:before {
+    content: "▼";
+    font-size: 15px;
+    float: right;
+    right: 20px;
+    top: 15px;
+    position: relative;
+  }
+  #sp-menu dt.open::before {
+    content: "▲";
+    font-size: 15px;
+    float: right;
+    right: 20px;
+    top: 15px;
+    position: relative;
+  }
+  #sp-menu dd {
+    width: 100%;
+    display: none;
+    font-size: 20px;
+    color: #ffffff;
+    font-family: "Advent Pro", sans-serif;
+    background-color: #1a1a1a;
+    text-shadow: -1px 0 2px #000000;
+  }
+  #sp-menu li {
+    padding: 0px 20px 5px 20px;
+    border-bottom: 1px solid #666666;
+  }
+  #sp-menu a {
+    color: #7C7C7C;
+    text-decoration: none;
+    display: block;
+  }
+  #sp-menu a:visited {
+    color: #7C7C7C;
+  }
+  #sp-menu a:hover {
+    color: #ffffff;
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  #contents {
+    width: 100%;
+    float: none;
+    margin: auto;
+    margin-top: 20px;
+    padding: 15px;
+  }
+  #contents-left {
+    width: 100%;
+    float: none;
+    margin: 0;
+    width: 100%;
+  }
+  #contents-right {
+    width: 100%;
+    float: none;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+  #sp-logo {
+    display: block;
+    margin: 20px;
+  }
+  #description {
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  #copyright {
+    font-size: 10px;
+    margin: 20px;
+  }
+  .menu-comment {
+    float: right;
+    padding-top: 10px;
+    margin-left: 10px;
+    font-size: 12px;
+    font-family: "Roboto", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  }
+  .content {
+    margin: 0;
+  }
+  .content img {
+    width: 100%;
+    height: auto;
+  }
+  .ad {
+    float: left;
+    width: 48%;
+    margin: 5px 5px 20px 5px;
+  }
+  .ad img {
+    width: 100%;
+    height: auto;
+  }
+  .pagetop {
+    z-index: 100;
+    position: fixed;
+    right: -50px;
+    bottom: 10px;
+  }
+  .pagetop a {
+    display: block;
+    width: 50px;
+    background-color: #29abe2;
+    border-radius: 5px 0px 0px 5px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 24px;
+    text-decoration: none;
+  }
+  /*
+  * 目次プラグイン
+  */
+  #ez-toc-container {
+    width: 95% !important;
+  }
+}

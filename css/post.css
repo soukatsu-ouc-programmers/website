@@ -114,6 +114,12 @@ ul.children {
   text-decoration: none;
 }
 
+@media screen and (max-width: 800px) {
+  .comments {
+    padding: 15px;
+  }
+}
+
 .title-main {
   font-size: 50px;
   font-weight: normal;
@@ -153,6 +159,8 @@ ul.children {
   border: 1px solid #e8e8e8;
   margin: 0 auto 60px;
   width: 80%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .content-category .title-sub {
@@ -195,10 +203,12 @@ ul.children {
   font-size: 17px;
   margin-bottom: 20px;
   border: none;
+  line-height: 1.3;
 }
 
 .post-title .update-date {
   vertical-align: middle;
+  width: auto;
 }
 
 .post-title a, .post-title a:link {
@@ -239,13 +249,18 @@ ul.children {
 .post-text .thumbnail {
   margin-right: 0;
   float: none;
+  width: 200px;
 }
 
 .post-text .thumbnail img {
+  width: 100%;
+  height: auto;
   border: 1px solid #f1f1f1;
   padding: 7px;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .post-text .text p {
@@ -354,12 +369,31 @@ ul.children {
   margin-bottom: 30px;
 }
 
+.post-count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #9a9a9a;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.post-count .post-comment-number {
+  margin-right: 9px;
+}
+
 .ez-toc-section {
   font-weight: bold;
 }
 
 .ez-toc-section b {
   font-weight: bold;
+}
+
+.wp-pagenavi {
+  text-align: center;
 }
 
 #navigator {
@@ -419,4 +453,45 @@ ul.children {
   color: #999;
   font-size: 11px;
   display: block;
+}
+
+@media screen and (max-width: 800px) {
+  .content-description {
+    text-align: left;
+  }
+  .content-category {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 80px;
+  }
+  .post-article {
+    margin-bottom: 60px;
+    padding-bottom: 30px;
+  }
+  .post-category a {
+    font-size: 10px;
+    top: -30px;
+    left: 0;
+    right: auto;
+    padding: 4px 3px 3px;
+  }
+  .post-title .update-date {
+    position: absolute;
+    right: 0;
+    top: -25px;
+    margin-right: 0;
+  }
+  .post-text {
+    display: block;
+  }
+  .post-text .thumbnail {
+    width: 100%;
+    margin: 0 0 15px 0;
+  }
+  .post-text .text {
+    margin: 0;
+  }
+  .post-tag a {
+    font-size: 10px;
+  }
 }

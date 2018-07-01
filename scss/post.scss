@@ -44,6 +44,7 @@
   border: 1px solid #e8e8e8;
   margin: 0 auto 60px;
   width: 80%;
+  box-sizing: border-box;
   .title-sub{
     text-align: center;
     font-weight: 400;
@@ -89,8 +90,10 @@
   font-size: 17px;
   margin-bottom: 20px;
   border: none;
+  line-height: 1.3;
   .update-date{
     vertical-align: middle;
+    width:auto;
   }
   a,a:link{
     text-decoration: none;
@@ -127,10 +130,14 @@
   .thumbnail{
     margin-right: 0;
     float: none;
+    width: 200px;
     img{
+      width: 100%;
+      height: auto;
       border: 1px solid #f1f1f1;
       padding: 7px;
       box-shadow: 0 0 5px rgba(0,0,0,0.05);
+      box-sizing: border-box;
     }
   }
   .text{
@@ -233,6 +240,15 @@
     margin-bottom: 30px;
   }
 }
+.post-count{
+  display: flex;
+  color: #9a9a9a;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  .post-comment-number{
+    margin-right: 9px;
+  }
+}
 
 // 目次見出し
 .ez-toc-section {
@@ -243,6 +259,10 @@
   }
 }
 
+//ページャー
+.wp-pagenavi{
+  text-align: center;
+}
 
 // ナビゲーター
 #navigator {
@@ -283,6 +303,54 @@
       color: #999;
       font-size: 11px;
       display: block;
+    }
+  }
+}
+
+
+@media screen and (max-width : $sp-max-width) {
+  .content-description{
+    text-align: left;
+  }
+  .content-category{
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 80px;
+  }
+  .post-article{
+    margin-bottom: 60px;
+    padding-bottom: 30px;
+  }
+  .post-category{
+    a{
+      font-size: 10px;
+      top: -30px;
+      left:0;
+      right: auto;
+      padding: 4px 3px 3px;
+    }
+  }
+  .post-title{
+    .update-date{
+     position: absolute;
+     right: 0;
+     top: -25px;
+     margin-right: 0;
+    }
+  }
+  .post-text{
+    display: block;
+    .thumbnail{
+      width: 100%;
+      margin: 0 0 15px 0;
+    }
+    .text{
+      margin: 0;
+    }
+  }
+  .post-tag{
+    a{
+      font-size: 10px;
     }
   }
 }
