@@ -55,7 +55,7 @@ Template Name: Works
     $terms_tag = get_the_terms($post->ID, 'works_tag');
 ?>
   <article class="post-article">
-    
+
   <h2 class="<?php echo esc_attr(get_post_type()); ?> post-title">
     <a href="<?php esc_url(the_permalink()); ?>">
       <?php the_title(); ?>
@@ -78,7 +78,7 @@ Template Name: Works
 
   <!-- <div class="text clear-float"> -->
   <div class="post-text">
-      
+
     <!-- アイキャッチ -->
     <div class="thumbnail">
 <?php
@@ -93,7 +93,18 @@ Template Name: Works
 ?>
   </div>
 </div>
-  
+
+  <!-- コメント数 -->
+<?php
+  if(get_comments_number() > 0):
+?>
+  <div class="post-comment-number">
+    <i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo get_comments_number(); ?>
+  </div>
+<?php
+  endif;
+?>
+
   <!-- 関連付けられたタグ -->
   <div class="post-tag">
 <?php

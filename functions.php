@@ -9,6 +9,9 @@ set_post_thumbnail_size(150, 120, false);
 // サムネイルのサイズを指定（追加）する
 add_image_size('archive_thumbnail', 150, 120, false);
 
+// サムネイルに別の解像度のsrcsetが挿入されないようにする
+add_filter('wp_calculate_image_srcset_meta', '__return_null');
+
 
 //---------------------------------------------------------------------------
 //　固定ページのパーマリンクの最後に.htmlを付ける

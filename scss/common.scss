@@ -355,7 +355,6 @@ body {
 
 // パンくずリスト
 #breadcrumb {
-  text-align: right;
   font-size: 11px;
   margin-bottom: 10px;
   letter-spacing: 1px;
@@ -440,8 +439,9 @@ body {
 .pagetop {
   z-index: 100;
   position: fixed;
-  right: -50px;
+  right: 0;
   bottom: 20px;
+  margin: 0;
 
   a {
     display: block;
