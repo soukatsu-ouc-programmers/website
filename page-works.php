@@ -94,16 +94,29 @@ Template Name: Works
   </div>
 </div>
 
+<div class="post-count">
   <!-- コメント数 -->
-<?php
+  <?php
   if(get_comments_number() > 0):
-?>
+  ?>
   <div class="post-comment-number">
     <i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo get_comments_number(); ?>
   </div>
-<?php
+  <?php
   endif;
-?>
+  ?>
+
+  <!-- 閲覧数 -->
+  <?php
+  if(function_exists('the_views')):
+  ?>
+  <div class="post-view-number">
+  <i class="fa fa-eye" aria-hidden="true"></i> <?php echo the_views(); ?>
+  </div>
+  <?php
+  endif;
+  ?>
+</div>
 
   <!-- 関連付けられたタグ -->
   <div class="post-tag">
