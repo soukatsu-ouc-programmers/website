@@ -24,24 +24,24 @@ Template Name: About
 
 <!-- 本文欄 -->
 <div class="content">
-  <h1><?php the_title(); ?></h1>
+  <h1 class="title-main"><?php the_title(); ?></h1>
 <?php
+  // 固定ページ自体のコンテンツを取り出す
   the_post();
   the_content();
 ?>
 
   <h2>部員紹介</h2>
   <p>
-    クリックすると展開します。
+    学年をクリックすると展開します。
   </p>
   <div class="toggleMenu" id="member-list">
-    <!-- 以下の見出しに使われている h3 タグはjQueryの仕様で決められているため変更しないこと -->
 <?php
   // 学年ごとのカスタムフィールドのキーを走査
   foreach($member_grade as $summary => $field_key):
     // この学年のデータをすべて取り出す
 ?>
-    <h3><?php echo esc_html($summary); ?></h3>
+    <h6><?php echo esc_html($summary); ?></h6>
     <div>
 <?php
     foreach(get_post_custom()[$field_key] as $member_text):

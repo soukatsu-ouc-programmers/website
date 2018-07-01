@@ -1,16 +1,18 @@
-#ez-toc-container { border: 4px double #ddd; margin: 2em 0 2em 25%; padding: 2em; }
+#ez-toc-container { border: 4px double #ddd; margin: 2em 0 2em 10%; padding: 2em; }
 
 .ez-toc-title-container { margin: 10px 0 10px 0 !important; }
 
 .ez-toc-title { text-align: center !important; }
 
-.ez-toc-title:before { content: "==="; margin-right: 10px; }
+.ez-toc-title::before { content: "==="; margin-right: 10px; }
 
 .ez-toc-title:after { content: "==="; margin-left: 10px; }
 
 .ez-toc-list { margin: 10px !important; }
 
-.ez-toc-list li { font-size: 95%; list-style-type: decimal; border-bottom: dotted 1px #ccc; margin-bottom: 5px !important; }
+.ez-toc-list a { display: block; border-bottom: dotted 1px #ccc; }
+
+.ez-toc-list li { font-size: 95%; margin-top: 5px !important; list-style-type: decimal; }
 
 .ez-toc-section { font-weight: bold; }
 

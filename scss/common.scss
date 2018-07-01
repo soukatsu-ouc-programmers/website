@@ -8,7 +8,6 @@
 /*
 * 変数定義
 */
-// $contents_width: ($page_width - $menu_width - $menu_right_margin - $contents_margin);
 $contents_width: ($page_width - $menu_width - $menu_right_margin);
 $contents_right_width: 200px;
 $contents_left_width: ($contents_width - $contents_split_distance - $contents_right_width);
@@ -23,7 +22,7 @@ h1 {
   margin: 20px 0 5px -15px;
   letter-spacing: 1px;
 
-  &:before {
+  &::before {
     content: "▼";
     color: $color_summary_symbol;
     margin-right: 5px;
@@ -31,10 +30,15 @@ h1 {
 }
 
 h2 {
-  margin: 30px 0 5px -10px;
-  border-bottom: 1px solid #888888;
+  font-size: 20px;
   font-weight: bold;
-  font-size: 14px;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  color: #494949;
+  background: none;
+  border-left: none;
+  border-bottom: 1px solid;
 
   a {
     &:link {
@@ -53,14 +57,21 @@ h2 {
   }
 }
 
+// 段落下の見出し
+p + h2, ul + h2, table + h2 {
+  margin-top: 30px;
+}
+
 h3 {
   font-size: 15px;
   font-weight: bold;
-  margin: 30px 0 10px -20px;
-  padding: 0.25em;
-  color: #494949;
-  background: #f4fcff;
-  border-left: solid 5px $color_summary_symbol;
+  padding: 0.5em;
+  border-left: 3px solid #bebebe;
+}
+
+// 段落下の見出し
+p + h3, ul + h3, table + h3 {
+  margin-top: 30px;
 }
 
 h4 {
@@ -75,7 +86,7 @@ h5 {
   font-weight: bold;
   margin: 10px 0 7px -15px;
 
-  &:before {
+  &::before {
     content: "・";
     margin-right: 3px;
   }
@@ -152,7 +163,7 @@ input[type="text"], input[type="email"], textarea {
 }
 
 textarea {
-  width: 95%;
+  width: 100%;
 }
 
 select {
@@ -244,6 +255,11 @@ ul.disc {
 
 #sp-logo {
   display: none;
+
+  img {
+    width: 220px;
+    height: auto;
+  }
 }
 
 .pc {
@@ -379,7 +395,6 @@ body {
 .topimage {
   width: 100%;
   height: auto;
-  margin-bottom: 20px;
 }
 
 // メニューに付ける日本語の注釈
@@ -398,7 +413,7 @@ body {
 }
 
 // 更新日時
-.update-date {
+.post-date {
   font-size: 10px;
   color: $color_date;
   width: 100px;
@@ -526,9 +541,12 @@ body {
   right: 0;
   bottom: 0;
   z-index: 1;
+
+  img {
+    width: 150px;
+  }
 }
 
 
 // 外部ファイルのインポート
-// TODO: チーム編集が終わったら個別のCSS読み込みを削除してインポートするように修正へ
-// @import "post.scss";
+@import "post.scss";

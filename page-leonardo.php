@@ -13,15 +13,16 @@ Template Name: レオナルドの部屋
 
 <!-- 本文欄 -->
 <div class="content">
-  <h1><?php the_title(); ?></h1>
-  <p><img src="<?php bloginfo('template_url'); ?>/img/logo.jpg" width="750"></p>
+  <h1 class="title-main"><?php the_title(); ?></h1>
+  <p class="thumbnail-full"><img src="<?php bloginfo('template_url'); ?>/img/logo.jpg"></p>
 
   <!-- 追従式レオナルド -->
   <div class="pc follow-leonardo">
-    <img src="<?php bloginfo('template_url'); ?>/img/leonardo_follow.png" width="150">
+    <img src="<?php bloginfo('template_url'); ?>/img/leonardo_follow.png">
   </div>
 
 <?php
+  // 固定ページ自体のコンテンツを取り出す
   the_post();
   the_content();
 ?>

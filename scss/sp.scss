@@ -9,7 +9,7 @@
 @import "_variables.scss";
 
 
-@media screen and (max-width : $sp-max-width) {
+@media screen and (max-width : $sp_max_width) {
 
   /*
   * PC専用のレイアウトを無効にする
@@ -45,6 +45,7 @@
   #main {
     width: 95%;
     margin: 0 auto;
+    margin-bottom: 10px;
   }
 
   // PC版では非表示となる領域
@@ -54,8 +55,14 @@
 
   // スマホ版専用のハンバーガーメニュー
   #sp-menu {
+    width: 100%;
+    top: 0;
+    position: fixed;
+    z-index: 100;
+
     dt {
       width: 100%;
+      height: $sp_menu_height;
       cursor: pointer;
       background-color: $backcolor_menu;
       color: $color_link_active;
@@ -67,7 +74,7 @@
         text-decoration: none;
   	  }
 
-      &:before {
+      &::before {
         content: "▼";
         font-size: 15px;
         float: right;
@@ -141,14 +148,36 @@
     width: 100%;
     float: none;
     margin: 0;
+    margin-top: 50px;
     width: 100%;
     text-align: center;
   }
 
   // 創作活動部ロゴ
   #sp-logo {
-    display: block;
-    margin: 20px;
+    width: 50%;
+    left: 25%;
+    height: $sp_menu_height;
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+    z-index: 1000;
+
+    a {
+      display: inline;
+
+      &:hover {
+        transform: translateX(0);
+      }
+    }
+
+    img {
+      width: auto;
+      height: $sp_menu_height - 5px * 2;
+      margin-top: 5px;
+      margin-bottom: 0;
+      z-index: 1000;
+   }
   }
 
   // サイトの説明文
@@ -176,32 +205,29 @@
   // 本文欄
   .content {
     margin: 0;
-    // padding-left: 5px;
+
     img {
       width: 100%;
       height: auto;
     }
   }
 
-  // 記事一覧のアイキャッチ
-  // .thumbnail {
-	//   margin-left: 20px;
-
-  //   img {
-  //     height: auto;
-  //   }
-  // }
-
   // 広告欄バナー
   .ad {
     float: left;
-    width: (100% / 2) - 2%;
-	  margin: 5px 5px 20px 5px;
+    width: (100% / 2);
+	  margin: 5px 0 20px 0;
 
     img {
       width: 100%;
       height: auto;
     }
+  }
+
+  // トップページのサイトイメージ画像
+  .topimage {
+    width: 100%;
+    height: auto;
   }
 
   // 上に戻るボタン
@@ -222,13 +248,4 @@
       text-decoration: none;
     }
   }
-
-
-  /*
-  * 目次プラグイン
-  */
-  #ez-toc-container {
-    width: 95% !important;
-  }
-
 }

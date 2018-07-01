@@ -95,45 +95,18 @@ function new_post_type_leonardotoys() {
         )
     );
 
-    register_taxonomy(
-        'leonardotoys_category',
-        'leonardotoys',
-        array(
-            'label'  => 'おもちゃカテゴリー',
-            'labels' => array(
-                'popular_items' => 'よく使うカテゴリー',
-                'edit_item'     => 'カテゴリーを編集',
-                'add_new_item'  => '新規カテゴリーを追加',
-                'search_items'  => 'カテゴリーを検索',
-            ),
-          'public'       => true,
-          'hierarchical' => true,
-          'rewrite'      => array('slug' => 'leonardotoys/category')    // leonardotoys_category の代わりに leonardotoys/category でアクセス（URL)
-        )
-    );
-
-    register_taxonomy(
-        'leonardotoys_tag',
-        'leonardotoys',
-        array(
-            'label'  => 'おもちゃタグ',
-            'labels' => array(
-                'popular_items' => 'よく使うタグ',
-                'edit_item'     => 'タグを編集',
-                'add_new_item'  => '新規タグを追加',
-                'search_items'  => 'タグを検索',
-            ),
-            'public'       => true,
-            'hierarchical' => false,
-            'rewrite'      => array('slug' => 'leonardotoys/tag')
-        )
-    );
-
     flush_rewrite_rules();
 }
-
 add_action('init', 'new_post_type_leonardotoys');
-add_rewrite_rule('leonardotoys/category/([^/]+)/?$', 'index.php?leonardotoys_category=$matches[1]', 'top');
-add_rewrite_rule('leonardotoys/tag/([^/]+)/?$', 'index.php?leonardotoys_tag=$matches[1]', 'top');
+
+
+//---------------------------------------------------------------------------
+//  プラグイン「AddQuicktag」でカスタム投稿タイプを有効にする
+//---------------------------------------------------------------------------
+add_filter('addquicktag_post_types', 'my_addquicktag_post_types');
+function my_addquicktag_post_types($post_types) {
+    array_push($post_types, 'works', 'leonardotoys');
+    return $post_types;
+}
 
 ?>

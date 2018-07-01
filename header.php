@@ -28,10 +28,14 @@
 </head>
 
 <body>
+
 <!-- スマホ版メニュー -->
 <div id="sp-menu-container">
   <dl id="sp-menu">
-    <dt>&nbsp;&nbsp;≡</dt>
+    <dt>
+      <div id="sp-logo"><a href="<?php echo esc_url(home_url()); ?>"><img class="topimage" src="<?php bloginfo('template_url'); ?>/img/sp_logo.gif"></a></div>
+      &nbsp;&nbsp;≡
+    </dt>
     <dd>
       <ul>
         <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('About'))); ?>">About<span class="menu-comment">創作活動部について</span></a></li>
@@ -48,7 +52,7 @@
 
 <!-- パソコン版メニュー -->
 <div id="menu">
-  <div id="logo"><a href="<?php echo esc_url(home_url()); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo.gif" width="220" height="auto" alt=""></a></div>
+  <div id="logo"><a href="<?php echo esc_url(home_url()); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo.gif"></a></div>
   <ul>
     <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('About'))); ?>">About<br><span class="menu-comment">創作活動部について</span></a></li>
     <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Works'))); ?>">Works<br><span class="menu-comment">作品紹介</span></a></li>

@@ -2,29 +2,37 @@
 //  コメント欄のスタイルを定義します。
 //********************************************************************/
 @charset "UTF-8";
+@import "_variables.scss";
+
 
 // コメント欄
-.comments{
+.comments {
   background: #fafafa;
   border: 1px solid #f1f1f1;
   padding: 30px;
-  .comment-title,
-  .comment-reply-title{
-    margin: 0 0 30px;
+
+  // 見出し
+  .comment-title, .comment-reply-title {
     background: none;
     border: none;
+    margin: 0 0 30px -5px;
   }
 }
+
+// コメント入力欄のラベル
 .comment-form-label {
   display: block;
 }
 
-.comments-list{
+// コメント一覧のコンテナー
+.comments-list-wrapper {
   border-bottom: 1px solid #f3f3f3;
   margin-bottom: 40px;
   padding-bottom: 30px;
 }
-.comment-list {
+
+// コメント一覧
+.comments-list {
   margin-bottom: 13px;
 }
 
@@ -70,10 +78,8 @@
 .comment-text {
   padding: 5px 10px;
   margin: 5px 0;
-  // background: #f0f7ff7a;
-  // border: dashed 2px #5b8bd0;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   background: #ffffff;
-  box-shadow: 0 0 2px rgba(0,0,0,0.1);
 
   p {
     margin: 5px 0;
@@ -91,27 +97,17 @@ ul.children {
   margin-left: 10px;
 }
 
-// 返信ボタン
+// 返信ボタンのコンテナー
 .comment-reply-wrapper {
   display: inline-block;
   text-align: right;
   width: 100%;
 
+  // 返信ボタン
   .comment-reply {
     display: inline-block;
     text-align: center;
     color: $color_summary_symbol;
-    // color: $color_link_active;
-    // background-color: $backcolor_button;
-    // padding: 3px;
-    // margin-bottom: 20px;
-    // border-radius: 3px;
-    // width: 70px;
-    /* background-color: #29abe2; */
-    /* padding: 3px; */
-    /* margin-bottom: 20px; */
-    /* border-radius: 3px; */
-    /* width: 70px; */
 
     a {
       &::before {
@@ -137,8 +133,11 @@ ul.children {
 }
 
 
-@media screen and (max-width : $sp-max-width) {
-  .comments{
+// SP専用の追加設定
+@media screen and (max-width : $sp_max_width) {
+
+  // コメント欄
+  .comments {
     padding: 15px;
   }
 }

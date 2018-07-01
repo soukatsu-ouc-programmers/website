@@ -21,7 +21,7 @@
 .ez-toc-title {
   text-align: center !important;
 
-  &:before {
+  &::before {
     content: "===";
     margin-right: 10px;
   }
@@ -36,11 +36,15 @@
 .ez-toc-list {
   margin: 10px !important;
 
+  a {
+    display: block;
+    border-bottom: dotted 1px #ccc;
+  }
+
   li {
     font-size: 95%;
+    margin-top: 5px !important;
     list-style-type: decimal;
-    border-bottom: dotted 1px #ccc;
-    margin-bottom: 5px !important;
   }
 }
 

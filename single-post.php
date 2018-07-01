@@ -6,6 +6,7 @@ Template Name: Blog単一記事
 <?php get_header(); ?>
 <?php
   if(have_posts()):
+    // 固定ページ自体のコンテンツを取り出す
     the_post();
   endif;
 ?>
@@ -18,8 +19,15 @@ Template Name: Blog単一記事
 </div>
 
 <!-- 本文欄 -->
-<div class="content">
-  <h1><?php the_title(); ?><span class="update-date">（<?php the_time('Y/m/d'); ?>）</span></h1>
+<div class="content post">
+  <h1 class="title-single-article"><?php the_title(); ?><span class="post-date"><?php the_time('Y/m/d'); ?></span></h1>
+
+  <!-- 記事本文 -->
+  <div class="post-text">
+<?php
+  the_content();
+?>
+  </div>
 
   <!-- 関連付けられたタグ -->
   <div class="post-tag">
@@ -32,13 +40,6 @@ Template Name: Blog単一記事
 ?>
   </div>
 
-  <!-- 記事本文 -->
-  <div class="text">
-<?php
-  the_content();
-?>
-  </div>
-
   <!-- コメント欄 -->
   <div class="comments">
 <?php
@@ -48,9 +49,9 @@ Template Name: Blog単一記事
 
   <!-- ナビゲーター -->
   <div id="navigator">
-    <div id="nav-previous"><?php previous_post_link('%link', '前の記事へ'); ?></div>
-    <div id="nav-home"><i class="fa fa-home"></i></div>
-    <div id="nav-next"><?php next_post_link('%link', '次の記事へ'); ?></div>
+    <div class="pager-arrow"><?php next_post_link('%link', '<i class="fa fa-angle-left" aria-hidden="true"></i>'); ?></div>
+    <div class="pager-home"><a href="<?php echo esc_url(get_permalink(get_page_by_title('Blog'))); ?>"><i class="fa fa-home"></i><span>Blog</span></a></div>
+    <div class="pager-arrow"><?php previous_post_link('%link', '<i class="fa fa-angle-right" aria-hidden="true"></i>'); ?></div>
   </div>
 
 </div><!-- content -->

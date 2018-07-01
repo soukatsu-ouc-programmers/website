@@ -4,6 +4,24 @@
 @charset "UTF-8";
 
 
+h6 {
+  display: block;
+  margin-left: -20px;
+  cursor: pointer;
+
+  // 折りたたまれているとき
+  &::before {
+    content: "▼";
+  }
+
+  // 展開されているとき
+  &.ui-accordion-header-active {
+    &::before {
+      content: "▲";
+    }
+  }
+}
+
 #member-list {
   margin-left: 20px;
 }

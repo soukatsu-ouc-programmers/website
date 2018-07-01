@@ -14,14 +14,15 @@ $vendor_prefix: -webkit-, -moz-, -o-, -ms-, '';
 
 
 // 数値
-$sp-max-width: 800px;              // スマホ版レイアウトの最大幅
+$sp_max_width: 800px;              // スマホ版レイアウトの最大幅
+$sp_menu_height: 45px;             // スマホ版メニューの高さ
 $font_size: 13px;
 $line_height: 1.7;
 $page_width: 1100px;               // ページの全体幅
 $menu_width: 260px;
 $menu_right_margin: 20px;
-$contents_margin: 30px;
-$contents_split_distance: 60px;    // コンテンツ領域を左右分離するときの間隔
+$contents_margin: 20px;
+$contents_split_distance: 95px;    // コンテンツ領域を左右分離するときの間隔
 $text_indent: 20px;                // 本文テキストの字下げ幅
 $ease_text_mousehover: 0.3s;       // 文字リンクのホバー時に行う色変化の時間
 $ease_img_mousehover: 0.2s;        // 画像リンクのホバー時に行う色変化の時間
@@ -49,3 +50,4 @@ $backcolor_button: #29abe2;
 // フォント
 $fontfamily_general: 'Roboto', "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 $fontfamily_menu: 'Advent Pro', sans-serif;
+$fontfamily_category: 'Roboto', sans-serif;

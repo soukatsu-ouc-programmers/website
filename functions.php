@@ -91,7 +91,7 @@ function create_comment_form($comment, $args, $depth) {
 ?>
   <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
     <div id="comment-<?php comment_ID(); ?>">
-      <div class="comment-list">
+      <div class="comments-list">
         <div class="comment-header">
           <!-- 投稿者名 -->
           <div class="comment-author">
@@ -163,5 +163,22 @@ function create_comment_form($comment, $args, $depth) {
 //　ログインしているときのコメント欄の表示
 //---------------------------------------------------------------------------
 add_filter( 'comment_form_logged_in', '__return_empty_string' );
+
+
+//---------------------------------------------------------------------------
+//　アーカイブページのパンくずリスト末尾の項目を出力
+//---------------------------------------------------------------------------
+function last_breadcrumb($category) {
+    // ページ全体のタイトル有無を判定して出し分ける
+    if(single_cat_title('', false)):
+?>
+  <a href="<?php echo esc_url(get_category_link($category->cat_ID)); ?>"><?php single_cat_title(); ?></a>
+<?php
+    else:
+?>
+  <a href=""><?php echo esc_html(get_the_archive_title()); ?></a>
+<?php
+    endif;
+}
 
 ?>
