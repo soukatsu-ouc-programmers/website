@@ -5,10 +5,8 @@ Template Name: レオナルドのおもちゃ箱単一記事
 ?>
 <?php get_header(); ?>
 <?php
-  if(have_posts()):
-    // 固定ページ自体のコンテンツを取り出す
-    the_post();
-  endif;
+  // 固定ページ自体のコンテンツを取り出す
+  the_post();
   $terms_tag = get_the_terms($post->ID, 'leonardotoys_tag');
 ?>
 
@@ -22,6 +20,20 @@ Template Name: レオナルドのおもちゃ箱単一記事
 <!-- 本文欄 -->
 <div class="content post">
   <h1 class="title-single-article">レオナルドのおもちゃ：<?php the_title(); ?><span class="post-date">（<?php the_time('Y/m/d'); ?>）</span></h1>
+
+<?php
+  if(function_exists('the_views') && is_user_logged_in()):
+    // このページは管理者としてログインしているときのみ閲覧数を表示する
+?>
+  <!-- このおもちゃの閲覧数 -->
+  <div class="post-count">
+    <div class="post-view-number">
+      <i class="fa fa-eye" aria-hidden="true"></i> <?php the_views(); ?>
+    </div>
+  </div>
+<?php
+  endif;
+?>
 
   <!-- 記事本文 -->
   <div class="post-text">

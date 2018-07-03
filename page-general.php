@@ -3,7 +3,12 @@
 Template Name: 固定ページ汎用
 */
 ?>
-<?php get_header(); ?>
+<?php
+  get_header();
+
+  // 固定ページ自体のコンテンツを取り出す
+  the_post();
+?>
 
 <!-- パンくずリスト -->
 <div id="breadcrumb">
@@ -14,11 +19,25 @@ Template Name: 固定ページ汎用
 <!-- 本文欄 -->
 <div class="content">
   <h1 class="title-main"><?php the_title(); ?></h1>
+
 <?php
-  // 固定ページ自体のコンテンツを取り出す
-  the_post();
+  if(function_exists('the_views') && is_user_logged_in()):
+    // このページは管理者としてログインしているときのみ閲覧数を表示する
+?>
+  <!-- 固定ページ自体の閲覧数 -->
+  <div class="post-count">
+    <div class="post-view-number">
+      <i class="fa fa-eye" aria-hidden="true"></i> <?php the_views(); ?>
+    </div>
+  </div>
+<?php
+  endif;
+?>
+
+<?php
   the_content();
 ?>
+
 </div><!-- content -->
 
 <?php get_footer(); ?>

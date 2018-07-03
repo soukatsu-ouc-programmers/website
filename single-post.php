@@ -5,10 +5,8 @@ Template Name: Blog単一記事
 ?>
 <?php get_header(); ?>
 <?php
-  if(have_posts()):
-    // 固定ページ自体のコンテンツを取り出す
-    the_post();
-  endif;
+  // 固定ページ自体のコンテンツを取り出す
+  the_post();
 ?>
 
 <!-- パンくずリスト -->
@@ -21,6 +19,30 @@ Template Name: Blog単一記事
 <!-- 本文欄 -->
 <div class="content post">
   <h1 class="title-single-article"><?php the_title(); ?><span class="post-date"><?php the_time('Y/m/d'); ?></span></h1>
+
+    <div class="post-count">
+<?php
+    if(get_comments_number() > 0):
+?>
+      <!-- コメント数 -->
+      <div class="post-comment-number">
+        <i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo get_comments_number(); ?>
+      </div>
+<?php
+    endif;
+?>
+
+<?php
+    if(function_exists('the_views')):
+?>
+      <!-- 閲覧数 -->
+      <div class="post-view-number">
+        <i class="fa fa-eye" aria-hidden="true"></i> <?php the_views(); ?>
+      </div>
+<?php
+    endif;
+?>
+    </div>
 
   <!-- 記事本文 -->
   <div class="post-text">

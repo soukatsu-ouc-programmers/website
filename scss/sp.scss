@@ -26,6 +26,11 @@
     display: none;
   }
 
+  // SP専用のレイアウトを有効にする
+  .sp {
+    display: block;
+  }
+
 
   /*
   * 各種見出し・タグ
@@ -46,6 +51,7 @@
     width: 95%;
     margin: 0 auto;
     margin-bottom: 10px;
+    margin-top: 60px;
   }
 
   // PC版では非表示となる領域

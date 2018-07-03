@@ -3,11 +3,12 @@
   .pc { display: none; }
   #menu { display: none; }
   .sp-br { display: none; }
+  .sp { display: block; }
   /* 各種見出し・タグ */
   h1, h2, h3, h4, h5, h6 { margin-left: 0; }
   /* 全ページ共通 */
   #container { width: 100%; }
-  #main { width: 95%; margin: 0 auto; margin-bottom: 10px; }
+  #main { width: 95%; margin: 0 auto; margin-bottom: 10px; margin-top: 60px; }
   #sp-menu-container { display: block; }
   #sp-menu { width: 100%; top: 0; position: fixed; z-index: 100; }
   #sp-menu dt { width: 100%; height: 45px; cursor: pointer; background-color: #1a1a1a; color: #ffffff; font-size: 28px; font-weight: bold; border-bottom: solid 5px #29abe2; }

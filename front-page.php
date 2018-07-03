@@ -3,12 +3,31 @@
 Template Name: Home
 */
 ?>
-<?php get_header(); ?>
+<?php
+  get_header();
+
+  // 固定ページ自体のコンテンツを取り出す
+  the_post();
+?>
 
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/slick.css">
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/slick-theme.css">
 <script src="<?php bloginfo('template_url'); ?>/js/slick.min.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/movie-slider.js"></script>
+
+<?php
+  if(function_exists('the_views') && is_user_logged_in()):
+    // このページは管理者としてログインしているときのみ閲覧数を表示する
+?>
+<!-- 固定ページ自体の閲覧数 -->
+<div class="post-count">
+  <div class="post-view-number">
+    <i class="fa fa-eye" aria-hidden="true"></i> <?php the_views(); ?>
+  </div>
+</div>
+<?php
+  endif;
+?>
 
 <div id="description">小樽商科大学の創立<script type="text/javascript">myDate = new Date(); myYear = myDate.getFullYear() - 2013 + 1; document.write(myYear);</script>年目のサークル「創作活動部」のホームページです。</div>
 <img class="topimage" src="<?php bloginfo('template_url'); ?>/img/topimage.jpg" alt="">
@@ -64,7 +83,6 @@ Template Name: Home
 
   <!-- 自由編集欄 -->
 <?php
-  the_post();
   the_content();
 ?>
 
@@ -72,12 +90,19 @@ Template Name: Home
 
   <!-- 右側の広告欄 -->
   <div id="contents-right">
-    <br class="sp-br"><div class="ad"><a href="leonardo.html"><img src="<?php bloginfo('template_url'); ?>/img/banner/banner_leonardo.png" width="200" height="75" alt=""></a><br>我が部のマスコット</div>
-    <br class="sp-br"><div class="ad"><a href="http://www.kawaz.org/"><img src="<?php bloginfo('template_url'); ?>/img/banner/banner_kawazlogo.png" width="200" height="75" alt=""></a><br>交流させて頂いています</div>
-    <br class="sp-br"><div class="ad"><a href="pagework/blessingcorolla/rpg.html"><img src="<?php bloginfo('template_url'); ?>/img/banner/banner_rpg01.png" width="200" height="75" alt=""></a><br>我が部の代表作</div>
-    <br class="sp-br"><div class="ad"><a href="about.html"><img src="<?php bloginfo('template_url'); ?>/img/banner/banner_buin.gif" width="200" height="75" alt=""></a><br>入部についてはこちらから</div>
-    <br class="sp-br"><div class="ad"><a href="http://slib.net/a/13641/"><img src="<?php bloginfo('template_url'); ?>/img/banner/banner_hoshizora.gif" width="200" height="75" alt=""></a><br>完結型の文芸作品はこちら</div>
-    <br class="sp-br"><div class="ad"><a href="http://mypage.syosetu.com/525447/"><img src="<?php bloginfo('template_url'); ?>/img/banner/banner_novelist.gif" width="200" height="75" alt=""></a><br>連載型の文芸作品はこちら</div>
+<?php
+  foreach(get_post_custom()['banner'] as $banner):
+?>
+    <br class="sp-br"><div class="ad">
+<?php
+      // カスタムフィールド内でショートコードを実行する
+      // カスタムフィールドでのHTMLを許可するためエスケープしない
+      echo do_shortcode($banner);
+?>
+    </div>
+<?php
+  endforeach;
+?>
     <br clear="all">
   </div><!-- contents-right -->
 

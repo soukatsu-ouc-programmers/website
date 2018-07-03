@@ -3,7 +3,16 @@
 Template Name: Blog
 */
 ?>
-<?php get_header(); ?>
+<?php
+  get_header();
+
+  // 固定ページ自体のコンテンツを取り出す
+  the_post();
+
+  // 「続きを読む」を有効にする
+  global $more;
+  $more = 0;
+?>
 
 <!-- パンくずリスト -->
 <div id="breadcrumb">
@@ -16,13 +25,19 @@ Template Name: Blog
   <h1 class="title-main"><?php the_title(); ?></h1>
 
 <?php
-  // 固定ページ自体のコンテンツを取り出す
-  the_post();
-
-  // 「続きを読む」を有効にする
-  global $more;
-  $more = 0;
+  if(function_exists('the_views') && is_user_logged_in()):
+    // このページは管理者としてログインしているときのみ閲覧数を表示する
 ?>
+  <!-- 固定ページ自体の閲覧数 -->
+  <div class="post-count">
+    <div class="post-view-number">
+      <i class="fa fa-eye" aria-hidden="true"></i> <?php the_views(); ?>
+    </div>
+  </div>
+<?php
+  endif;
+?>
+
   <div class="content-description">
     <?php the_content(); ?>
   </div>
@@ -76,7 +91,7 @@ Template Name: Blog
 ?>
       <!-- 閲覧数 -->
       <div class="post-view-number">
-        <i class="fa fa-eye" aria-hidden="true"></i> <?php echo the_views(); ?>
+        <i class="fa fa-eye" aria-hidden="true"></i> <?php the_views(); ?>
       </div>
 <?php
     endif;

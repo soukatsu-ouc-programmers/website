@@ -29,7 +29,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 html{
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 blockquote, q {
@@ -42,22 +42,22 @@ q:before, q:after {
   content: none;
 }
 
-input, textarea,{
+input, textarea {
   margin: 0;
   padding: 0;
 }
 
-ol, ul{
-    list-style:none;
+ol, ul {
+  list-style:none;
 }
 
-table{
-    border-collapse: collapse;
-    border-spacing:0;
+table {
+  border-collapse: collapse;
+  border-spacing:0;
 }
 
-caption, th{
-    text-align: left;
+caption, th {
+  text-align: left;
 }
 
 a:focus {
@@ -80,12 +80,20 @@ a:focus {
   height: 1px;
 }
 
-.both{
-  clear:both;
+.both {
+  clear: both;
 }
 
 .inline_block {
   display: inline-block;
   *display: inline;
   *zoom: 1;
+}
+
+input[type="submit"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  background: none;
 }
