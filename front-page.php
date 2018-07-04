@@ -30,7 +30,7 @@ Template Name: Home
 ?>
 
 <div id="description">小樽商科大学の創立<script type="text/javascript">myDate = new Date(); myYear = myDate.getFullYear() - 2013 + 1; document.write(myYear);</script>年目のサークル「創作活動部」のホームページです。</div>
-<img class="topimage" src="<?php bloginfo('template_url'); ?>/img/topimage.jpg" alt="">
+<img class="topimage" src="<?php bloginfo('template_url'); ?>/img/topimage.jpg">
 
 <div id="contents-wrapper">
   <!-- 左側の本文欄 -->
