@@ -7,6 +7,7 @@ Template Name: Works単一記事
 <?php
   // 固定ページ自体のコンテンツを取り出す
   the_post();
+  $category_list = get_terms('works_category');
   $terms_category = get_the_terms($post->ID, 'works_category');
   $terms_tag = get_the_terms($post->ID, 'works_tag');
 ?>
@@ -16,12 +17,14 @@ Template Name: Works単一記事
   <a href="<?php echo esc_url(home_url()); ?>"><i class="fa fa-home"></i>HOME</a> &gt;
   <a href="<?php echo esc_url(get_permalink(get_page_by_title('Works'))); ?>">Works</a> &gt;
 <?php
-  // カテゴリー階層もパンくずリストに含める
-  foreach($terms_category as $term):
+  if(count($category_list) > 1):
+    // カテゴリーが複数定義されている場合は、カテゴリー階層もパンくずリストに含める
+    foreach($terms_category as $term):
 ?>
   <a href="<?php echo esc_url(get_term_link($term->slug, 'works_category')); ?>"><?php echo esc_html($term->name); ?></a> &gt;
 <?php
-  endforeach;
+    endforeach;
+  endif;
 ?>
   <a href="<?php echo esc_url(get_the_permalink()); ?>"><?php the_title(); ?></a>
 </div>
@@ -30,16 +33,19 @@ Template Name: Works単一記事
 <div class="content post">
   <h1 class="title-single-article"><?php the_title(); ?><span class="post-date"><?php the_time('Y/m/d'); ?></span></h1>
 
+<?php
+  if(count($category_list) > 1):
+    // カテゴリーが複数定義されている場合のみ、この記事のカテゴリーを表示する
+    foreach($terms_category as $term):
+?>
   <!-- 関連付けられたカテゴリー -->
   <div class="post-category">
-<?php
-  foreach($terms_category as $term) :
-?>
     <a href="<?php echo esc_url(get_term_link($term->slug, 'works_category')); ?>"><?php echo esc_html($term->name); ?></a>
-<?php
-  endforeach;
-?>
   </div>
+<?php
+    endforeach;
+  endif;
+?>
 
     <div class="post-count">
 <?php

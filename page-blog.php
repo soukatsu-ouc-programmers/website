@@ -42,6 +42,27 @@ Template Name: Blog
     <?php the_content(); ?>
   </div>
 
+<?php
+  $category_list = get_categories();
+  if(count($category_list) > 1):
+    // カテゴリーが複数定義されている場合はカテゴリー一覧を表示する
+?>
+  <div class="content-category">
+    <h2 class="title-sub">Category</h2>
+    <ul class="category-list">
+<?php
+    foreach($category_list as $term):
+?>
+      <li><a href="<?php echo esc_url(get_category_link($term->cat_ID)); ?>"><?php echo esc_html($term->name); ?></a></li>
+<?php
+    endforeach;
+?>
+    </ul>
+  </div>
+<?php
+  endif;
+?>
+
   <!-- 各記事の一覧 -->
 <?php
   // 現在のページの記事一覧を取得
@@ -53,6 +74,8 @@ Template Name: Blog
   );
   while($the_query->have_posts()):
     $the_query->the_post();
+    $terms_category = get_the_category();
+    $terms_tag = get_the_tags();
 ?>
 
   <article class="post-article">
@@ -64,6 +87,24 @@ Template Name: Blog
         （<?php the_time('Y/m/d'); ?>）
       </span>
     </h2>
+
+<?php
+    if(count($category_list) > 1):
+      // カテゴリーが複数定義されている場合のみ、この記事のカテゴリーを表示する
+?>
+    <!-- 関連付けられたカテゴリー -->
+    <div class="post-category">
+<?php
+      foreach($terms_category as $term):
+?>
+      <a href="<?php echo esc_url(get_category_link($term->cat_ID)); ?>"><?php echo esc_html($term->name); ?></a>
+<?php
+      endforeach;
+?>
+    </div>
+<?php
+    endif;
+?>
 
     <div class="post-text">
       <!-- 省略付き記事本文 -->
@@ -101,9 +142,9 @@ Template Name: Blog
     <!-- 関連付けられたタグ -->
     <div class="post-tag">
 <?php
-    foreach(get_the_tags() as $tag):
+    foreach($terms_tag as $term):
 ?>
-      <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>"><?php echo esc_html($tag->name); ?></a>
+      <a href="<?php echo esc_url(get_tag_link($term->term_id)); ?>"><?php echo esc_html($term->name); ?></a>
 <?php
     endforeach;
 ?>

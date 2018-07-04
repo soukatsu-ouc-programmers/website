@@ -42,19 +42,26 @@ Template Name: Works
     <?php the_content(); ?>
   </div>
 
+<?php
+  $category_list = get_terms('works_category');
+  if(count($category_list) > 1):
+    // カテゴリーが複数定義されている場合はカテゴリー一覧を表示する
+?>
   <div class="content-category">
     <h2 class="title-sub">Category</h2>
     <ul class="category-list">
 <?php
-  $terms_category = get_terms('works_category');
-  foreach($terms_category as $term):
+    foreach($category_list as $term):
 ?>
       <li><a href="<?php echo esc_url(get_term_link($term->slug, 'works_category')); ?>"><?php echo esc_html($term->name); ?></a></li>
 <?php
-  endforeach;
+    endforeach;
 ?>
     </ul>
   </div>
+<?php
+  endif;
+?>
 
   <!-- 各記事の一覧 -->
 <?php
@@ -81,16 +88,23 @@ Template Name: Works
       </span>
     </h2>
 
+<?php
+    if(count($category_list) > 1):
+      // カテゴリーが複数定義されている場合のみ、この記事のカテゴリーを表示する
+?>
     <!-- 関連付けられたカテゴリー -->
     <div class="post-category">
 <?php
-    foreach($terms_category as $term):
+      foreach($terms_category as $term):
 ?>
       <a href="<?php echo esc_url(get_term_link($term->slug, 'works_category')); ?>"><?php echo esc_html($term->name); ?></a>
 <?php
-    endforeach;
+      endforeach;
 ?>
     </div>
+<?php
+    endif;
+?>
 
     <div class="post-text">
       <!-- アイキャッチ -->
@@ -137,7 +151,7 @@ Template Name: Works
     <!-- 関連付けられたタグ -->
     <div class="post-tag">
 <?php
-    foreach($terms_tag as $term) :
+    foreach($terms_tag as $term):
 ?>
       <a href="<?php echo esc_url(get_term_link($term->slug, 'works_tag')); ?>"><?php echo esc_html($term->name); ?></a>
 <?php
