@@ -95,9 +95,11 @@ Template Name: Works
     <div class="post-text">
       <!-- アイキャッチ -->
       <div class="thumbnail">
+        <a href="<?php echo esc_url(the_permalink()); ?>">
 <?php
     the_post_thumbnail('large');
 ?>
+        </a>
       </div>
 
       <!-- 省略付き記事本文 -->
