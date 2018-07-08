@@ -36,4 +36,5 @@
   .ad img { width: 100%; height: auto; }
   .topimage { width: 100%; height: auto; }
   .pagetop { z-index: 100; position: fixed; right: -50px; bottom: 10px; }
-  .pagetop a { display: block; width: 50px; background-color: #29abe2; border-radius: 5px 0px 0px 5px; text-align: center; color: #ffffff; font-size: 24px; text-decoration: none; } }
+  .pagetop a { display: block; width: 50px; background-color: #29abe2; border-radius: 5px 0px 0px 5px; text-align: center; color: #ffffff; font-size: 24px; text-decoration: none; }
+  .unity-outer-link { display: inline-block; text-align: center; width: 100%; margin-top: 50px; margin-bottom: 50px; } }

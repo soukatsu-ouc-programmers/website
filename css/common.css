@@ -183,7 +183,7 @@ body { font-family: "Roboto", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic
 
 .unity-webgl iframe { position: absolute; top: 0; right: 0; width: 100%; height: 100%; }
 
-.unity-outer-link { display: inline-block; text-align: center; margin-top: 50px; margin-bottom: 50px; }
+.unity-outer-link { display: none; }
 
 .twitter-timeline { width: 100% !important; height: 400px !important; }
 
