@@ -14,7 +14,7 @@ Template Name: About
 <?php
   // 見出しとカスタムフィールドのキーの対応付け定義
   $member_grade = array(
-   'ＯＢ・院生' => 'accordion-member-ob',
+   'ＯＢ・院生' => 'accordion-member-obog',
    '４年生' => 'accordion-member-4th-grade',
    '３年生' => 'accordion-member-3rd-grade',
    '２年生' => 'accordion-member-2nd-grade',
