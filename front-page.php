@@ -71,7 +71,19 @@ Template Name: Home
   foreach(get_post_custom()['slider'] as $slider_item):
     // カスタムフィールドで埋め込みHTML/iframeを許可するためエスケープしない
 ?>
-      <div class="youtube-wrapper"><div class="item youtube"><?php echo $slider_item; ?></div></div>
+      <div class="slick-wrapper">
+<?php
+    if(is_youtube_iframe($slider_item) == true):
+?>
+        <div class="item youtube"><?php echo $slider_item; ?></div>
+<?php
+    else:
+?>
+        <div class="item slick-img-wrapper"><?php echo $slider_item; ?></div>
+<?php
+    endif;
+?>
+      </div>
 <?php
   endforeach;
 ?>

@@ -527,6 +527,13 @@ body {
   }
 }
 
+.slick-img-wrapper {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .google-drive-audio {
   iframe {
     width: 100%;

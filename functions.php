@@ -192,4 +192,24 @@ function last_breadcrumb($category) {
     endif;
 }
 
+
+//---------------------------------------------------------------------------
+//　汎用関数の定義
+//---------------------------------------------------------------------------
+// 与えたコンテンツがYouTubeのiframeの埋め込みリンクを含むかどうかを判定する
+function is_youtube_iframe($content) {
+    // 以下の条件をすべて満たす場合のみ有効とする
+
+    // iframeかどうか
+    if(stripos($content, '<iframe') === false) {
+        return false;
+    }
+    // YouTubeのリンクを含むかどうか
+    if(stripos($content, 'www.youtube.com') === false) {
+        return false;
+    }
+
+    return true;
+}
+
 ?>
