@@ -285,6 +285,10 @@ body {
   margin: 0 auto;
 }
 
+main {
+  display: block;
+}
+
 #menu {
   width: $menu_width;
   float: left;

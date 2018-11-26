@@ -1,6 +1,7 @@
 
 <div id="copyright">Copyright &copy; <script type="text/javascript">myDate = new Date() ;myYear = myDate.getFullYear ();document.write(myYear);</script> 小樽商科大学 創作活動部 All Rights Reserved.</div>
 </div><!-- /contents -->
+</main>
 </div><!-- /main -->
 </div><!-- /container -->
 
