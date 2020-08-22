@@ -73,10 +73,8 @@ Template Name: Home
   // もしもとに戻したかったら戻していいよ（2020年笠原）
   $slider_query = new WP_Query(
     array(
-      'post_type' => array(
-      'works'
-    ),
-    'posts_per_page' => 5
+      'post_type' => array('works'),
+      'posts_per_page' => 5
     )
   );
 	
