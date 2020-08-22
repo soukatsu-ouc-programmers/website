@@ -68,24 +68,30 @@ Template Name: Home
     <h1>最近の作品</h1>
     <section class="slick-slider">
 <?php
-  foreach(get_post_custom()['slider'] as $slider_item):
-    // カスタムフィールドで埋め込みHTML/iframeを許可するためエスケープしない
+
+// 最新の投稿を5件自動的に取ってきてスライダーに表示するようにした
+// youtubeのiframeは埋め込めなくなったけど手軽になったのでヨシ！
+// もしもとに戻したかったら戻していいよ（2020年笠原）
+$slider_query = new WP_Query(
+	array(
+	'post_type' => array(
+		'works'
+	),
+	'posts_per_page' => 5
+	)
+);
+	
+while($slider_query->have_posts()):
+    $slider_query->the_post();
+    $slider_post_type = get_post_type_object(get_post_type());
 ?>
       <div class="slick-wrapper">
-<?php
-    if(is_youtube_iframe($slider_item) == true):
-?>
-        <div class="item youtube"><?php echo $slider_item; ?></div>
-<?php
-    else:
-?>
-        <div class="item slick-img-wrapper"><?php echo $slider_item; ?></div>
-<?php
-    endif;
-?>
+		<div class="item slick-img-wrapper"><a href=<?php echo esc_url(the_permalink()); ?>><img src=<?php echo the_post_thumbnail_url('full'); ?>></a></div>
+
       </div>
 <?php
-  endforeach;
+	endwhile;
+	wp_reset_postdata();
 ?>
     </section>
 
