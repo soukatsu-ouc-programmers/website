@@ -43,7 +43,7 @@
 <?php
   if(is_archive()):
 ?>
-  <h1 class="title-main include-japanese"><?php echo esc_html(get_the_archive_title()); ?></h1>
+  <h1 class="title-main include-japanese"><?php echo get_the_archive_title(); ?></h1>
 <?php
   endif;
 ?>
