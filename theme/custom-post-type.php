@@ -24,8 +24,7 @@ function new_post_type_works() {
                 'custom-fields',       // カスタムフィールド
                 'comments'             // コメント
             ),
-            'menu_position' => 5,      // 「投稿」の下に追加
-            'show_in_rest' => true
+            'menu_position' => 5       // 「投稿」の下に追加
         )
     );
 
@@ -92,8 +91,7 @@ function new_post_type_leonardotoys() {
                 'editor',              // 本文（の編集機能）
                 'custom-fields',       // カスタムフィールド
             ),
-            'menu_position' => 5,      // 「投稿」の下に追加
-            'show_in_rest' => true
+            'menu_position' => 5       // 「投稿」の下に追加
         )
     );
 
