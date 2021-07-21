@@ -83,6 +83,7 @@
     <dd>
       <ul>
         <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('About'))); ?>">About<span class="menu-comment">創作活動部について</span></a></li>
+        <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Members'))); ?>">Members<span class="menu-comment">メンバー紹介</span></a></li>
         <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Works'))); ?>">Works<span class="menu-comment">作品紹介</span></a></li>
         <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Blog'))); ?>">Blog<span class="menu-comment">部員日記</span></a></li>
         <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Contact'))); ?>">Contact<span class="menu-comment">連絡先</span></a></li>
@@ -99,6 +100,7 @@
   <div id="logo"><a href="<?php echo esc_url(home_url()); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo.gif"></a></div>
   <ul>
     <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('About'))); ?>">About<br><span class="menu-comment">創作活動部について</span></a></li>
+    <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Members'))); ?>">Members<br><span class="menu-comment">メンバー紹介</span></a></li>
     <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Works'))); ?>">Works<br><span class="menu-comment">作品紹介</span></a></li>
     <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Blog'))); ?>">Blog<br><span class="menu-comment">部員日記</span></a></li>
     <li><a href="<?php echo esc_url(get_permalink(get_page_by_title('Contact'))); ?>">Contact<br><span class="menu-comment">連絡先</span></a></li>

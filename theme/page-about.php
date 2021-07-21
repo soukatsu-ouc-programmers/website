@@ -50,40 +50,6 @@ Template Name: About
   the_content();
 ?>
 
-  <h2>部員紹介</h2>
-  <p>
-    学年をクリックすると展開します。
-  </p>
-  <div class="toggleMenu" id="member-list">
-<?php
-  // 学年ごとのカスタムフィールドのキーを走査
-  foreach($member_grade as $summary => $field_key):
-    // この学年のデータをすべて取り出す
-?>
-    <h6><?php echo esc_html($summary); ?></h6>
-    <div>
-<?php
-    foreach(get_post_custom()[$field_key] as $member_text):
-?>
-      <div class="member">
-<?php
-      // カスタムフィールドでのHTMLを許可するためエスケープしない
-      echo $member_text;
-?>
-      </div>
-<?php
-    endforeach;
-?>
-    </div>
-<?php
-  endforeach;
-?>
-  </div>
-
-  <p>
-    他にも多数の部員が在籍しています。
-  </p>
-
 </div><!-- content -->
 
 <?php get_footer(); ?>
