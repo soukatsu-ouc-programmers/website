@@ -212,4 +212,12 @@ function is_youtube_iframe($content) {
     return true;
 }
 
+//---------------------------------------------------------------------------
+//　パブリサイズ共有をカスタム投稿タイプでも有効にする処理
+//---------------------------------------------------------------------------
+add_action('init', 'my_custom_init');
+function my_custom_init() {
+    add_post_type_support( 'works', 'publicize' );
+}
+
 ?>
